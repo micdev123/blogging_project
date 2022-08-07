@@ -1,0 +1,130 @@
+.Author_RightSide_Component {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Author_RightSide_Img {
+    width: 100%;
+    height: 9rem;
+    /* background-color: red; */
+    margin-bottom: 10px;
+}
+
+.Author_RightSide_Img img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    border: 0.5px solid #f7f7f7;
+    object-fit: contain;
+}
+
+.Author_RightSide_Title {
+    margin-bottom: 10px;
+}
+
+.Author_RightSide_Title h2 {
+    font-weight: 550;
+    color: #414141;
+    font-size: 1.4rem;
+}
+
+.Author_RightSide_Title p {
+    font-weight: 550;
+    color: #7b7b7b;
+    font-size: 0.9rem;
+}
+
+.Author_RightSide_Desc {
+    color: #7b7b7b;
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+
+
+.Author_RightSide_socials {
+    margin-bottom: 30px;
+}
+
+.Author_RightSide_socials .icon {
+    margin: 0 10px;
+    font-size: 1.2rem;
+
+}
+
+
+.Author_RightSide_btn {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #3B698E;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Author_RightSide_Title h2 {
+        font-weight: 550;
+        color: #414141;
+        font-size: 1.7rem;
+    }
+
+    .Author_RightSide_Title p {
+        font-size: 1.1rem;
+    }
+
+    .Author_RightSide_Desc {
+        font-size: 1.1rem;
+    }
+
+    .Author_RightSide_socials .icon {
+        margin: 0 10px;
+        font-size: 1.7rem;
+
+    }
+
+    .Author_RightSide_btn {
+        width: 80%;
+        font-size: 1.5rem;
+        padding: 7px 0;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .Author_RightSide_Title h2 {
+        font-weight: 550;
+        color: #414141;
+        font-size: 1.7rem;
+    }
+
+    .Author_RightSide_Title p {
+        font-size: 1.1rem;
+    }
+
+    .Author_RightSide_Desc {
+        font-size: 1.1rem;
+    }
+
+    .Author_RightSide_socials .icon {
+        font-size: 1.7rem;
+
+    }
+
+    .Author_RightSide_btn {
+        width: 70%;
+        font-size: 1.4rem;
+        padding: 7px 0;
+    }
+}

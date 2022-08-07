@@ -1,0 +1,37 @@
+.Category_Component {
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(6, 7rem);
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
+    gap: 20px;
+}
+
+.Category_Component p{
+    background-color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 550;
+    color: #858585;
+    cursor: pointer;
+}
+
+.Category_Component p:hover {
+    color: #343434;
+}
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Category_Component {
+        display: none;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .Category_Component {
+        display: none;
+    }
+}

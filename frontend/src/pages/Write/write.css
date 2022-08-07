@@ -1,0 +1,69 @@
+.Write_Component {
+    width: 100%;
+    min-height: 90vh;
+}
+
+.Write_Container {
+    width: 90%;
+    /* min-height: 90vh; */
+    margin: 2rem auto;
+    background-color: white;
+    padding: 2rem;
+}
+
+.Write_Img {
+    width: 100%;
+    height: 20rem;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.Write_Form_Container {
+    position: relative;
+}
+
+.Form_Group {
+    display: flex;
+    align-items: center;
+}
+
+.Form_Group .icon {
+    font-size: 2rem;
+    /* background-color: red; */
+    cursor: pointer;
+}
+
+.Text_Input {
+    width: 87%;
+    margin-right: 20px;
+    font-size: 2rem;
+    font-weight: 550;
+    border: none;
+    outline: none;
+    padding: 20px;
+    color: #464646;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* background-color: red; */
+}
+
+.Textarea {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: normal;
+    min-height: 80vh;
+}
+
+.Publish {
+    background-color: teal;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    padding: 7px 20px;
+    color: white;
+    margin-top: 20px;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    cursor: pointer;
+    outline: none;
+}

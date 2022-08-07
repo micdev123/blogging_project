@@ -1,0 +1,748 @@
+.Single_Post_Container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.Overlay_Single_Post {
+    position: fixed;
+    top: 0;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 100;
+}
+
+.Single_Post_Left {
+    width: 100%;
+}
+
+.Single_Post {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+}
+
+.Single_Post_Img {
+    width: 100%;
+}
+
+.Single_Post_Img img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.Single_Post_Left_Contents {
+    margin-top: 20px;
+}
+
+.Single_Post_Left_Head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* background-color: yellow; */
+}
+
+.Post_Head_Right {
+    width: 100%;
+    /* display: flex; */
+}
+
+.Post_Head_Right_Foot {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* background-color: red; */
+}
+
+.Foot_Left {
+    display: flex;
+}
+
+.Single_Post_Actions .icon {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.Single_Post_Actions .edit {
+    color: #3B698E;
+}
+
+.Single_Post_Actions .trash {
+    color: #890606;
+    margin-left: 10px;
+}
+
+.Single_Post_Title {
+    margin: 10px 0;
+    font-size: 2rem;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+}
+
+.Single_Post_Body {
+    margin-top: 20px;
+}
+
+.Single_Post_Body p {
+    font-size: 1.05rem;
+    font-weight: normal;
+    color: #444444;
+    line-height: 30px;
+    letter-spacing: 0.5px;
+}
+
+.Single_Post_Body p::first-letter {
+    font-size: 3rem;
+    margin-left: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 550;
+}
+
+
+.Single_Post_Left_Footer {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.Pagination {
+    width: 100%;
+}
+
+.Previous, .Next {
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+
+.Previous img,
+.Next img {
+    width: 100%;
+    height: 8rem;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.Pagination_Overlay {
+    width: 100%;
+    height: 8rem;
+    background-color: #0a5a65;
+    position: absolute;
+    top: 0;
+    opacity: 0.6;
+    border-radius: 5px;
+}
+
+.Pagination_Content {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    left: 20px;
+    z-index: 100;
+    color: white;
+}
+
+.Pagination_Content h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 550;
+}
+
+.Pagination_Content p {
+    font-size: 1.1rem;
+}
+
+.Next p {
+    position: absolute;
+    right: 2rem;
+}
+
+
+.Single_Comments {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.Comment_Head {
+    width: 100%;
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.Comment_Head h2 {
+    font-weight: 550;
+    font-size: 1.1rem;
+}
+
+.Comment_Btn {
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 6px 15px;
+    font-size: 0.9rem;
+    color: #0f547c;
+    cursor: pointer;
+    font-weight: 550;
+}
+
+.Comment_Btn .icon {
+    margin-right: 10px;
+}
+
+
+.Comments {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.Single_Comment {
+    margin-top: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.Commenter_Head, .Reply_Head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.Commenter_Img, .Replier_Img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 10px;
+}
+
+.Commenter_Img img, .Replier_Img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 0.5px solid #f0f0f0;
+}
+
+.Commenter_Info, .Replier_Info {
+    width: 100%;
+}
+
+
+.Commenter_Info h2, .Replier_Info h2 {
+    font-weight: 550;
+    font-size: 1.05rem;
+}
+
+.Commenter_Info p, .Replier_Info p {
+    font-weight: normal;
+    font-size: 0.8rem;
+    color: #717171;
+    display: flex;
+    align-items: center;
+}
+
+.Commenter_Info > div, .Replier_Info > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Comment_Body, .Reply_Body {
+    width: 100%;
+}
+
+.Comment_Body p, .Reply_Body p {
+    font-size: 1rem;
+}
+
+.Single_Comment_Actions, .Reply_Actions {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 550;
+}
+
+.Single_Comment_Actions:hover, .Reply_Actions:hover {
+    color: black;
+    font-weight: 550;
+}
+
+.line_ {
+    width: 1.5px;
+    height: 1.5rem;
+    background-color: #dadada;
+    margin: 0 10px;
+}
+
+.Single_Comment_Actions p, .Reply_Actions p {
+    font-size: 1rem;
+}
+
+.Single_Comment_Actions .icon, .Reply_Actions .icon {
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+
+.Reply_Container {
+    background-color: #edf9f9;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+
+
+
+.Single_Post_Right {
+    width: 100%;
+}
+
+.Categories_ {
+    width: 100%;
+    background-color: white;
+    padding: 2rem 1.5rem;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.Categories_ h2 {
+    font-weight: 550;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Category {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 10px;
+    /* background-color: red; */
+}
+
+.Category p {
+    background-color: #fcfcfc;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.Right_Sidebar_Icon {
+    z-index: 100;
+}
+
+.Single_Post_Right_Small_Screen {
+    background-color: #FCFCFC;
+    padding: 1rem 1rem;
+    width: 28rem;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    transition: all .3s ease;
+}
+
+
+.Close_Sidebar {
+    /* width: 100%; */
+    position: sticky;
+    top: 0;
+    left: 10px;
+    font-size: 2.5rem;
+    color: #3B698E;
+    z-index: 100;
+    /* background-color: red; */
+    cursor: pointer;
+}
+
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Single_Post_Container {
+        grid-template-columns: 1fr;
+        /* position: relative; */
+    }
+
+    .Single_Post_Right {
+        display: none;
+    }
+
+    .Single_Post_Left_Head .Post_Head_Left {
+        width: 3.8rem;
+        height: 3.8rem;
+    }
+
+    .Single_Post_Left_Head .Post_Head_Left .img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Single_Post_Left_Head .Foot_Left p {
+        font-size: 1.3rem;
+    }
+
+    .Single_Post_Left_Head .Post_Head_Right h2 {
+        font-size: 1.5rem;
+    }
+
+    .Single_Post_Actions .icon {
+        font-size: 1.8rem;
+    }
+
+    .Single_Post_Actions .trash {
+        margin-left: 15px;
+    }
+
+    .Single_Post_Title {
+        font-size: 2.5rem;
+    }
+
+    .Single_Post_Body {
+        margin-top: 20px;
+    }
+
+    .Single_Post_Body p {
+        font-size: 1.5rem;
+        line-height: 37px;
+        letter-spacing: 0.8px;
+    }
+
+    .Single_Post_Body p::first-letter {
+        font-size: 4rem;
+    }
+
+
+    .Previous img,
+    .Next img {
+        height: 9rem;
+    }
+
+    .Pagination_Overlay {
+        height: 9rem;
+    }
+
+    .Pagination_Content h2 {
+        font-size: 2.3rem;
+    }
+
+    .Pagination_Content p {
+        font-size: 1.4rem;
+        font-weight: 550;
+    }
+
+    .Comment_Head h2 {
+        font-size: 1.37rem;
+    }
+
+    .Comment_Btn {
+        border: 1.7px solid #021c3c;
+        padding: 7px 15px;
+        font-size: 1.15rem;
+    }
+
+    .Comment_Btn .icon {
+        font-size: 1.3rem;
+    }
+
+
+    .Comments {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .Commenter_Img,
+    .Replier_Img {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+
+    .Commenter_Info h2,
+    .Replier_Info h2 {
+        font-size: 1.37rem;
+    }
+
+    .Commenter_Info p,
+    .Replier_Info p {
+        font-size: 1.1rem;
+        
+    }
+
+    .Comment_Body p,
+    .Reply_Body p {
+        font-size: 1.35rem;
+        letter-spacing: 1px;
+        line-height: 28px;
+    }
+
+
+    .line_ {
+        height: 1.7rem;
+    }
+
+    .Single_Comment_Actions p,
+    .Reply_Actions p {
+        font-size: 1.35rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .Single_Comment_Actions .icon,
+    .Reply_Actions .icon {
+        margin-right: 5px;
+        font-size: 1.8rem;
+    }
+
+    
+
+    .Single_Post_Author {
+        padding: 5rem 0;
+    }
+
+    .Categories_ {
+        margin: 3rem 0;
+    }
+
+
+    .RelatedPosts {
+        margin-bottom: 2rem;
+    }
+
+
+    
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .Single_Post_Container {
+        grid-template-columns: 1fr;
+        /* position: relative; */
+    }
+
+    .Single_Post {
+        padding: 10px;
+    }
+
+    .Single_Post_Right {
+        display: none;
+    }
+
+    .Single_Post_Right_Small_Screen {
+        width: 100%;
+    }
+
+    .Single_Post_Left_Head .Post_Head_Left {
+        width: 5rem;
+        height: 4rem;
+    }
+
+    .Single_Post_Left_Head .Post_Head_Left .img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .Single_Post_Left_Head .Post_Head_Right h2 {
+        font-size: 1.5rem;
+    }
+
+    .Single_Post_Left_Head .Post_Head_Right .Foot_Left {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .Single_Post_Left_Head .Post_Head_Right .Foot_Left .line_ {
+        display: none;
+    }
+
+    .Single_Post_Left_Head .Foot_Left p {
+        font-size: 1.2rem;
+    }
+
+    .Single_Post_Actions .icon {
+        font-size: 1.7rem;
+    }
+
+    .Single_Post_Actions .trash {
+        margin-left: 18px;
+    }
+
+    .Single_Post_Title {
+        font-size: 2.3rem;
+    }
+
+    .Single_Post_Body {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .Single_Post_Body p {
+        width: 100%;
+        font-size: 1.35rem;
+        line-height: 37px;
+        letter-spacing: 0.8px;
+    }
+
+    .Single_Post_Body p::first-letter {
+        font-size: 4rem;
+    }
+
+
+    .Previous img,
+    .Next img {
+        height: 9rem;
+    }
+
+    .Pagination_Overlay {
+        height: 9rem;
+    }
+
+    .Pagination_Content {
+        width: 100%;
+        top: 10%;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .Pagination_Content h2 {
+        font-size: 2.35rem;
+        width: 100%;
+        line-height: 40px;
+    }
+
+    .Pagination_Content p {
+        font-size: 1.4rem;
+        font-weight: 550;
+        margin-left: 10px;
+    }
+
+    .Next p {
+        position: absolute;
+        right: 1rem;
+        bottom: -25px;
+    }
+
+    .Comment_Head {
+        flex-direction: column;
+    }
+
+    .Comment_Head h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .Comment_Btn {
+        border: 1.7px solid #021c3c;
+        padding: 7px 15px;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .Comment_Btn .icon {
+        font-size: 1.3rem;
+    }
+
+
+    .Comments {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .Commenter_Head,
+    .Reply_Head {
+        border-bottom: 1.2px solid #ebebeb;
+    }
+
+    .Commenter_Img,
+    .Replier_Img {
+        width: 3.7rem;
+        height: 3.7rem;
+    }
+
+
+    .Commenter_Info h2,
+    .Replier_Info h2 {
+        font-size: 1.4rem;
+    }
+
+    .Commenter_Info p,
+    .Replier_Info p {
+        font-size: 1.15rem;
+
+    }
+
+    .Comment_Body p,
+    .Reply_Body p {
+        font-size: 1.35rem;
+        letter-spacing: 1px;
+        line-height: 28px;
+    }
+
+
+    .line_ {
+        height: 1.7rem;
+    }
+
+    .Single_Comment_Actions p,
+    .Reply_Actions p {
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .Single_Comment_Actions .icon,
+    .Reply_Actions .icon {
+        margin-right: 5px;
+        font-size: 1.8rem;
+    }
+
+    .Single_Post_Author {
+        padding: 5rem 0;
+    }
+
+    .Categories_ {
+        margin: 3rem 0;
+    }
+
+    .Categories_ h2 {
+        font-size: 1.4rem;
+    }
+
+
+    .Category p {
+        font-size: 1.25rem;
+    }
+
+    .RelatedPosts {
+        margin-bottom: 2rem;
+    }
+
+
+}
