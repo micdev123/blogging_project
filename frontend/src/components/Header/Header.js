@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './header.css'
 
@@ -11,7 +12,9 @@ export const Header = () => {
                     <p>
                         Document you journey, learn from others, your thought is needed one way or the other it might serve as a stepping stone for others...
                     </p>
-                    <button className='Header_btn'>Start reading</button>
+                    <Link to='/login' className='Header_btn'>
+                        Start reading
+                    </Link>
                 </div>
                 <div className='Header_Image'>
                     <img src='./assets/blog1.png' alt='HeaderImg' />

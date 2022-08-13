@@ -4,6 +4,7 @@ import { AuthorRightSide } from '../Author-Right-Side/AuthorRightSide'
 import './featuredPost.css'
 
 export const FeaturedPost = () => {
+    
     return (
         <div className='FeaturedPost_Components'>
             <div className='FeaturedPost'>

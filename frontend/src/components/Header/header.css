@@ -45,6 +45,12 @@
     font-weight: normal;
     color: #343434;
     cursor: pointer;
+    background-color: #e4ebef;
+    text-decoration: none;
+}
+
+.Header_btn:hover {
+    background-color: #f7f7f7;
 }
 
 .Header_Image {

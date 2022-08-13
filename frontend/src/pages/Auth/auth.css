@@ -41,7 +41,7 @@
     outline: none;
 }
 
-.Auth_Btn, .Auth_Google_Btn{
+.Auth_Btn{
     background-color: #0b295c;
     padding: 7px 0;
     border: none;
@@ -51,28 +51,7 @@
     cursor: pointer;
     transition: 0.3s ease-in;
     outline: none;
-    margin: 0.5rem 0 0 0;
-}
-
-.Auth_Btn:hover {
-    background-color: #3B698E;
-}
-
-.Auth_Google_Btn {
-    background-color: #263838;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.Auth_Google_Btn:hover {
-    background-color: #475e5e;
-}
-
-.Auth_Google_Btn .icon {
-    font-size: 1.2rem;
-    margin-right: 5px;
+    margin: 0  0 25px 0;
 }
 
 .Auth_Form p {
@@ -83,7 +62,7 @@
 
 .Info {
     width: 100%;
-    padding: 7px;
+    padding: 6px;
     font-size: 1rem;
     /* margin-top: 15px; */
     outline: none;

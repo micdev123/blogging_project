@@ -1,54 +1,148 @@
-import React from 'react'
-import { BiLike } from 'react-icons/bi'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
+import { BiDislike, BiLike } from 'react-icons/bi'
 import { FaRegComment } from 'react-icons/fa'
+import { Link, useNavigate } from 'react-router-dom'
+import { format } from "timeago.js"
+import { publicRequest } from '../../requestController'
+import { Store } from '../../Store'
 
 import './post.css'
 
-export const Post = () => {
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'FETCH_REQUEST':
+            return { ...state, loading: true };
+        case 'FETCH_SUCCESS':
+            return {
+                ...state,
+                singlePost: action.payload.singlePost,
+                loading: false
+            };
+        case 'FETCH_FAIL':
+            return { ...state, loading: false, error: action.payload };
+        case 'UPDATE_REQUEST':
+            return { ...state, loadingUpdate: true };
+        case 'UPDATE_SUCCESS':
+            return { ...state, post: action.payload, loadingUpdate: false };
+        case 'UPDATE_FAIL':
+            return { ...state, loadingUpdate: false };
+        default:
+            return state;
+    }
+};
+
+
+export const Post = ({ data }) => {
+    const id = data._id
+    const Images_Folder = "http://localhost:5000/images/";
+    const navigate = useNavigate();
+
+    const [{ loadingUpdate, }, dispatch] = useReducer(reducer, {
+       loadingUpdate: false,
+    });
+    
+    const [likes, setLikes] = useState(null)
+    const [likeState, setLikeState] = useState(true);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                dispatch({ type: 'FETCH_REQUEST' });
+                const { data } = await publicRequest.get(`posts/find/${id}`);
+                setLikes(data.likeCount);
+                dispatch({ type: 'FETCH_SUCCESS', payload: data  });
+            }
+            catch (err) {
+            }
+        };
+        fetchData();
+    }, [id]);
+    
+    const likePost = async (id) => {
+        dispatch({ type: 'UPDATE_REQUEST' });
+        await publicRequest.put(`posts/${id}/likePost`);
+        setLikes(likes + 1)
+        dispatch({ type: 'UPDATE_SUCCESS', });
+        setLikeState(false);
+        
+    }
+    const unLikePost = async (id) => {
+        dispatch({ type: 'UPDATE_REQUEST' });
+        await publicRequest.put(`posts/${id}/unLikePost`);
+        setLikes(likes - 1)
+        dispatch({ type: 'UPDATE_SUCCESS', });
+        setLikeState(true);
+    }
     return (
-        <div className='Post_Component'>
+        <div className='Post_Component' key={data._id}>
             <div className='Post_Contents'>
                 <div className='Post_Contents_Head'>
-                    <div className='Post_Head_Left'>
-                        <img src='./assets/blog2.png' alt='Author_Img' />
-                    </div>
+                    {
+                        data.creatorPhoto ? (
+                            <div className='Post_Head_Left'>
+                                <img src={Images_Folder + data.creatorPhoto} alt={data.creator} />
+                            </div>
+                        ) : (
+                            <div className='Creator'>
+                                <h1>
+                                    {data.creator && `${data.creator.substring(0, 1)}`}
+                                </h1>
+                            </div>
+                        )
+                    }
+                        
                     <div className='Post_Head_Right'>
-                        <h2>Michael L Bangura</h2>
+                        <Link to={`/${data.creatorLink}`} className='Link'>
+                            <h2>{data.creator}</h2>
+                        </Link>
                         <div className='Post_Head_Right_Foot_'>
-                            <p>mic__dev.com</p>
+                            <Link to={`/${data.creatorLink}`} className='Link'>
+                                <p>{data.creatorLink}</p>
+                            </Link>
                             <div className='line'></div>
-                            <p>Aug 2, 2022</p>
+                            <p>{format(data.createdAt)}</p>
                         </div>
                     </div>
                 </div>
                 <div className='Post_Contents_Body'>
-                    <h2 className='Post_Contents_Body_Title'>
-                        8 ways to use the Spread operator in JavaScript
-                    </h2>
-                    <p className='Post_Contents_Body_Desc'>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe necessitatibus eaque exercitationem eligendi voluptate illum.
-                    </p>
+                    <Link to={`/post/${data.slug}_${data._id}`} className='Link'>
+                        <h2 className='Post_Contents_Body_Title'>
+                            {data.title}
+                        </h2>
+                        <p className='Post_Contents_Body_Desc'>
+                            {data.desc && `${data.desc.substring(0, 200)}...`}
+                        </p>
+                    </Link>
                     <div className='Post_Contents_Body_Tags'>
-                        <p className='Tag'>javascript</p>
-                        <p className='Tag'>health</p>
-                        <p className='Tag'>web development</p>
+                        {data.tags.map((tag) => (
+                            <Link to={`/?tag=${tag}`} className='Tag'>
+                                <p>{tag}</p>
+                            </Link>
+                        ))}
                     </div>
                 </div>
                 <div className='Post_Contents_Foot'>
                     <p>2 min read</p>
                     <div className='line'></div>
                     <p className='info'>
-                        <BiLike className='icon' />
-                        10
+                        {likeState && (
+                            <BiLike className='icon' onClick={() => likePost(data._id)} />
+                        )}
+                        
+                        {!likeState && (
+                            <BiDislike className='icon' onClick={() => unLikePost(data._id)} />
+                        )}
+                        
+                        {likes}
                     </p>
                     <p className='info comment'>
-                        <FaRegComment className='icon' />
+                        {loadingUpdate ? (<FaRegComment className='icon' />): (<FaRegComment className='icon' />)}
                         10
                     </p>
                 </div>
             </div>
             <div className='Post_Image'>
-                <img src='./assets/blog-img.png' alt='Post_Img' />
+                <img src={Images_Folder + data.photo} alt='Post_Img' />
             </div>
         </div>
     )

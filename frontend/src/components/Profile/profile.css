@@ -35,6 +35,11 @@
     margin-bottom: 10px;
 }
 
+.Form_Group_ > p {
+    font-size: 0.9rem;
+    color: #868484;
+}
+
 .Form_Group_ input {
     border: none;
     border-bottom: 1px solid #e3e3e3;
@@ -60,6 +65,7 @@
 .Form_Group_ textarea {
     border: none;
     outline: none;
+    border-bottom: 1.7px solid #eeeeee;
 }
 
 .Profile_Photo {
@@ -86,6 +92,7 @@
     height: 10rem;
     margin-bottom: 20px;
 }
+
 
 
 .Update_Profile {
@@ -126,6 +133,10 @@
 .Connection {
     display: flex;
     flex-direction: column;
+}
+
+.Connection input {
+    margin-bottom: 20px;
 }
 
 .Connection label {

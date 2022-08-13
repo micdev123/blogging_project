@@ -1,0 +1,18 @@
+.RightSideCategory_Component {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 10px;
+    /* background-color: red; */
+}
+
+.RightSideCategory_Component .Tag {
+    background-color: #fcfcfc;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #858585;
+}
+
+.RightSideCategory_Component .Tag p::first-letter {
+    text-transform: capitalize;
+}

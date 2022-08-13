@@ -1,16 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import { publicRequest } from '../../requestController';
 
 import './category.css'
 
 export const Category = () => {
+    const [tags, setTags] = useState([]);
+
+    useEffect(() => {
+        const getTags = async () => {
+            const { data } = await publicRequest.get("posts/tags");
+            setTags(data);
+        };
+        getTags();
+    }, []);
+    
+    const values = Object.values(tags)
+    
+    const postTags = [];
+    values.forEach((item) => {
+        item.forEach((object) => {
+            //  console.log(object);
+            for (let i in object) {
+                // console.log(object[i]);
+                for (var j in object[i]) {
+                    // console.log(object[i][j]._id);
+                    postTags.push(object[i][j]._id)
+               }
+            }
+         });
+    });
+    
+    // console.log(postTags);
     return (
         <div className='Category_Component'>
-            <p>All</p>
-            <p>Food</p>
-            <p>Health</p>
-            <p>Business</p>
-            <p>Science</p>
-            <p>Politics</p>
+            {postTags && postTags.map((tag) => (
+                <Link to={`/?tag=${tag}`} className='Tag'>
+                    <p>{tag}</p>
+                </Link>  
+            ))}
         </div>
     )
 }
