@@ -17,7 +17,7 @@ export const Header = () => {
                     </Link>
                 </div>
                 <div className='Header_Image'>
-                    <img src='./assets/blog1.png' alt='HeaderImg' />
+                    <img src='./assets/blog1.png' alt='' />
                 </div>
             </div>
         </div>

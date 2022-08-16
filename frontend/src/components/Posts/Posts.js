@@ -1,11 +1,12 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import { TbError404Off } from 'react-icons/tb'
 import { MostRead } from '../Most-Read-Posts/MostRead'
 import { Post } from '../Post/Post'
 import { publicRequest } from '../../requestController';
 
 import './posts.css'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { ProgressBar } from '../ProgressBar';
 
 const initialState = {
     posts: [],
@@ -20,7 +21,7 @@ const reducer = (state, action) => {
         case 'FETCH_REQUEST':
             return { ...state, isLoading: true };
         case 'FETCH_SUCCESS':
-            return { ...state, posts: action.payload, isLoading: false }; 
+            return { ...state, posts_: action.payload, isLoading: false }; 
         case 'FETCH_FAIL':
             return { ...state, isLoading: false, error: action.payload }; 
         default:
@@ -31,8 +32,8 @@ const reducer = (state, action) => {
 export const Posts = () => {
     const { search } = useLocation();
 
-    const [{ isLoading, error, posts }, dispatch] = useReducer(reducer, initialState); 
-
+    const [{ isLoading, error, posts_ }, dispatch] = useReducer(reducer, initialState); 
+    const [posts, setPosts] = useState()
     useEffect(() => {
         // fetch products from backend :: Ajax request
         const fetchPosts = async () => {
@@ -40,7 +41,7 @@ export const Posts = () => {
             try {
                 const { data } = await publicRequest.get("posts" + search);
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
-                // setProduct(data);
+                setPosts(data);
             }
             catch (error) {
                 dispatch({ type: 'FETCH_FAIL', payload: error.message });
@@ -52,12 +53,12 @@ export const Posts = () => {
     }, [search])
     // console.log(posts);
     return (
-        isLoading ? (<div>Loading...</div>) : error ? (<p>{ error }</p>) : (
+        isLoading ? (<ProgressBar/>) : error ? (<p>{ error }</p>) : (
         <div className='Posts_Component'>
             <div className='Posts'>
                 {posts && posts.length !== 0 ?
                     (
-                        posts.map((post) => (
+                        posts.posts.map((post) => (
                             <Post data={post} key={post._id} />
                         ))
                     ) : (
@@ -66,7 +67,17 @@ export const Posts = () => {
                             No Post with this keyword
                         </p>
                     )
-                }
+                    }
+                    <div className='Pagination'>
+                        {posts && [...Array(posts.pages).keys()].map((x) => (
+                            <Link
+                                className={x + 1 === Number(posts.page) ? 'Link Active_Link Dark_Mode' : 'Link Dark_Mode'}
+                                key={x + 1} to={`/?page=${x + 1}`}
+                            >
+                                {x + 1}
+                            </Link>
+                        ))}
+                    </div>
             </div>
             <div className='Most_Viewed'>
                 <MostRead />

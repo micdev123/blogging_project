@@ -52,11 +52,11 @@ export const Login = () => {
             </Helmet>
             <div className='Main_Container'>
                 <div className='Auth_Container'>
-                    <form onSubmit={submitHandler} className='Auth_Form'>
+                    <form onSubmit={submitHandler} className='Auth_Form Dark_Mode_Background'>
                         {msg && (<p className='msg'>{msg}</p>)}
-                        <h2>Login To Your Account</h2>
-                        <input type='email' name='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} />
-                        <input type='password' name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} />
+                        <h2 className='Dark_Mode'>Login To Your Account</h2>
+                        <input type='email' name='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} className="Dark_Mode_Background" />
+                        <input type='password' name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} className="Dark_Mode_Background" />
                         <button type='submit' className='Auth_Btn'>Login</button>
                         
                         <button className='Info'>

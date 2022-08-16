@@ -74,10 +74,6 @@ const deleteUser = asyncHandler(async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if (user) {
-            if (user.isAdmin === true) {
-                res.status(400).send({ message: "Can't delete Admin User" });
-                return;
-            }
             await user.remove();
             res.send({ message: 'User Deleted' });
         } else {

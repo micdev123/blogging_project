@@ -13,7 +13,7 @@ router.get('/find/:id', getUser)
 router.put('/find/:id', updateUser);
 
 // Delete user
-router.delete('/:id', authorizedToken, deleteUser)
+router.delete('/:id', deleteUser)
 
 
 

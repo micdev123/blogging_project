@@ -56,6 +56,10 @@
     min-height: 80vh;
 }
 
+.Mobile_Publish {
+    display: none;
+}
+
 .Publish {
     background-color: teal;
     border: none;
@@ -150,4 +154,157 @@
 
 .Now_Publish .icon {
     font-size: 1.3rem;
+}
+
+
+/* Tablet Devices :: Media Queries */
+@media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Write_Container {
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+
+    .Form_Group .icon {
+        font-size: 2.2rem;
+    }
+
+    .Text_Input {
+        width: 80%;
+        font-size: 2.2rem;
+    }
+
+    .Textarea {
+        width: 100%;
+        font-size: 1.8rem;
+    }
+
+    .Publish {
+        font-size: 1.4rem;
+        padding: 7px 20px;
+    }
+
+
+    .CloseBtn {
+        font-size: 2.5rem;
+    }
+
+    .Form_SideBar {
+        width: 27rem;
+    }
+
+    .SideBar_Form_Group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .SideBar_Form_Group label {
+        font-size: 1.5rem;
+    }
+
+    .SideBar_Form_Group .Input {
+        border-bottom: 1.7px solid #bebcbc;
+        font-size: 1.25rem;
+    }
+
+    .SideBar_Form_Group p {
+        font-size: 1.1rem;
+        color: #5f5d5d;
+    }
+
+    .Now_Publish {
+        font-size: 1.5rem;
+        padding: 8px 20px;
+    }
+
+    .Now_Publish .icon {
+        font-size: 1.6rem;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (min-width : 320px) and (max-width : 480px) {
+    .Write_Container {
+        width: 100%;
+        padding: 2rem 10px 6rem 10px;
+    }
+
+    .Form_Group .icon {
+        font-size: 2.2rem;
+    }
+
+    .Text_Input {
+        width: 100%;
+        font-size: 2.2rem;
+        margin-right: 5px;
+    }
+
+    .Textarea {
+        width: 100%;
+        font-size: 1.8rem;
+        height: fit-content;
+        border-bottom: 1px solid #dedede;
+    }
+
+    .Publish {
+        display: none;
+    }
+
+    .Mobile_Publish {
+        display: block;
+        background-color: teal;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        padding: 7px 20px;
+        color: white;
+        margin-top: 20px;
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+        cursor: pointer;
+        outline: none;
+    }
+
+
+    .CloseBtn {
+        font-size: 2.5rem;
+    }
+
+    .Form_SideBar {
+        width: 100%;
+    }
+
+    .SideBar_Form_Group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .SideBar_Form_Group label {
+        font-size: 1.4rem;
+        color: #464646;
+    }
+
+    .SideBar_Form_Group .Input {
+        width: 100%;
+        border-bottom: 1.7px solid #bebcbc;
+        font-size: 1.25rem;
+    }
+
+    .SideBar_Form_Group p {
+        font-size: 1.1rem;
+        color: #5f5d5d;
+    }
+
+    .Now_Publish {
+        font-size: 1.4rem;
+        padding: 7px 20px;
+    }
+
+    .Now_Publish .icon {
+        font-size: 1.6rem;
+    }
 }

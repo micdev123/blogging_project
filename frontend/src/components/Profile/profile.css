@@ -11,6 +11,7 @@
     display: flex;
     align-items: center;
     font-size: 1.4rem;
+    color: #3d3d3d;
 }
 
 .Profile_Component > h2 .icon {
@@ -37,7 +38,7 @@
 
 .Form_Group_ > p {
     font-size: 0.9rem;
-    color: #868484;
+    color: #757474;
 }
 
 .Form_Group_ input {
@@ -47,6 +48,7 @@
     font-size: 1rem;
     margin-bottom: 10px;
     outline: none;
+    color: #3d3d3d;
 }
 
 
@@ -54,18 +56,21 @@
     font-size: 1.1rem;
     font-weight: 550;
     margin-bottom: 15px;
+    color: #3d3d3d;
 }
 
 .Form_Group_ .Main_Label {
     font-size: 1.3rem;
     margin: 0;
     padding-bottom: 10px;
+    color: #3d3d3d;
 }
 
 .Form_Group_ textarea {
     border: none;
     outline: none;
     border-bottom: 1.7px solid #eeeeee;
+    color: #3d3d3d;
 }
 
 .Profile_Photo {

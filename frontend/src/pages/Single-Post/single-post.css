@@ -31,6 +31,7 @@
 .Single_Post_Img {
     width: 100%;
     height: 25rem;
+    /* background-color: red; */
 }
 
 .Single_Post_Img img {
@@ -38,6 +39,10 @@
     height: 100%;
     border-radius: 5px;
     object-fit: cover;
+}
+
+.Small_Screen {
+    display: none;
 }
 
 .Single_Post_Left_Contents {
@@ -51,20 +56,6 @@
     /* background-color: yellow; */
 }
 
-.Post_Head_Right {
-    width: 100%;
-    /* display: flex; */
-}
-
-.Post_Head_Right .Link {
-    text-decoration: none;
-    color: #3d3c3c;
-}
-
-.Post_Head_Right .Link h2 {
-    font-size: 1.1rem;
-}
-
 .Post_Head_Right_Foot {
     width: 100%;
     display: flex;
@@ -75,6 +66,7 @@
 
 .Foot_Left {
     display: flex;
+    align-items: center;
 }
 
 .Foot_Left p {
@@ -83,7 +75,7 @@
 }
 
 .Single_Post_Actions .icon {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
@@ -129,61 +121,6 @@
     width: 100%;
 }
 
-.Pagination {
-    width: 100%;
-}
-
-.Previous, .Next {
-    width: 100%;
-    border-radius: 5px;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-
-.Previous img,
-.Next img {
-    width: 100%;
-    height: 8rem;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.Pagination_Overlay {
-    width: 100%;
-    height: 8rem;
-    background-color: #0a5a65;
-    position: absolute;
-    top: 0;
-    opacity: 0.6;
-    border-radius: 5px;
-}
-
-.Pagination_Content {
-    width: 100%;
-    position: absolute;
-    top: 30%;
-    left: 20px;
-    z-index: 100;
-    color: white;
-}
-
-.Pagination_Content h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    font-weight: 550;
-}
-
-.Pagination_Content p {
-    font-size: 1.1rem;
-}
-
-.Next p {
-    position: absolute;
-    right: 2rem;
-}
-
 
 .Single_Comments {
     width: 100%;
@@ -220,6 +157,87 @@
     margin-right: 10px;
 }
 
+.Comment_Form {
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+
+.Form_Heading {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e9e9e9;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.Form_Heading .Creator {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #0f547c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form_Heading .Creator h1 {
+    color: white;
+    font-weight: 550;
+    font-size: 1.3rem;
+}
+
+.Form_Heading_Img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 5px;
+}
+
+.Form_Heading_Img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 0.5px solid #e4e4e4;
+    object-fit: contain;
+}
+
+.Form_Heading_Commenter {
+    font-weight: 550;
+    font-size: 1.05rem;
+    color: #3e3d3d;
+}
+
+.Comment_Form_Area {
+    width: 100%;
+    outline: none;
+    border: 0.5px solid #eceaea;
+    padding: 10px;
+    font-size: 1.05rem;
+    border-radius: 5px;
+}
+
+.Form_Btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+
+.Create_Comment {
+    background-color: #0f547c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
 
 .Comments {
     width: 100%;
@@ -233,7 +251,7 @@
     border-radius: 5px;
 }
 
-.Commenter_Head, .Reply_Head {
+.Commenter_Head {
     width: 100%;
     display: flex;
     align-items: center;
@@ -243,13 +261,13 @@
     
 }
 
-.Commenter_Img, .Replier_Img {
+.Commenter_Img {
     width: 3rem;
     height: 3rem;
     margin-right: 10px;
 }
 
-.Commenter_Img img, .Replier_Img img {
+.Commenter_Img img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -257,17 +275,17 @@
     border: 0.5px solid #f0f0f0;
 }
 
-.Commenter_Info, .Replier_Info {
+.Commenter_Info {
     width: 100%;
 }
 
 
-.Commenter_Info h2, .Replier_Info h2 {
+.Commenter_Info h2 {
     font-weight: 550;
     font-size: 1.05rem;
 }
 
-.Commenter_Info p, .Replier_Info p {
+.Commenter_Info p {
     font-weight: normal;
     font-size: 0.8rem;
     color: #717171;
@@ -275,58 +293,19 @@
     align-items: center;
 }
 
-.Commenter_Info > div, .Replier_Info > div {
+.Commenter_Info > div {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.Comment_Body, .Reply_Body {
+.Comment_Body {
     width: 100%;
 }
 
-.Comment_Body p, .Reply_Body p {
+.Comment_Body p {
     font-size: 1rem;
 }
-
-.Single_Comment_Actions, .Reply_Actions {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    cursor: pointer;
-    font-weight: 550;
-}
-
-.Single_Comment_Actions:hover, .Reply_Actions:hover {
-    color: black;
-    font-weight: 550;
-}
-
-.line_ {
-    width: 1.5px;
-    height: 1.5rem;
-    background-color: #dadada;
-    margin: 0 10px;
-}
-
-.Single_Comment_Actions p, .Reply_Actions p {
-    font-size: 1rem;
-}
-
-.Single_Comment_Actions .icon, .Reply_Actions .icon {
-    margin-right: 5px;
-    font-size: 1.2rem;
-}
-
-.Reply_Container {
-    background-color: #edf9f9;
-    width: 100%;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-}
-
-
 
 
 .Single_Post_Right {
@@ -343,7 +322,7 @@
 
 .Categories_ h2 {
     font-weight: 550;
-    font-size: 1.05rem;
+    font-size: 1rem;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 20px;
@@ -352,7 +331,7 @@
 
 
 .Right_Sidebar_Icon {
-    z-index: 100;
+    z-index: 10000;
 }
 
 .Single_Post_Right_Small_Screen {
@@ -370,17 +349,6 @@
 }
 
 
-.Close_Sidebar {
-    /* width: 100%; */
-    position: sticky;
-    top: 0;
-    left: 10px;
-    font-size: 2.5rem;
-    color: #3B698E;
-    z-index: 100;
-    /* background-color: red; */
-    cursor: pointer;
-}
 
 
 
@@ -395,34 +363,39 @@
         display: none;
     }
 
-    .Single_Post_Left_Head .Post_Head_Left {
-        width: 3.8rem;
-        height: 3.8rem;
+    .Single_Post {
+        padding: 1rem 10px;
     }
 
-    .Single_Post_Left_Head .Post_Head_Left .img {
-        width: 100%;
-        height: 100%;
+    .Single_Post .Single_Post_Left_Head .Creator {
+        width: 2.5rem;
+        margin-right: 10px;
+        /* background-color: red; */
     }
 
-    .Single_Post_Left_Head .Foot_Left p {
-        font-size: 1.3rem;
+    .Single_Post .Single_Post_Left_Head .Creator h1 {
+        font-size: 2.4rem;
     }
 
-    .Single_Post_Left_Head .Post_Head_Right h2 {
-        font-size: 1.5rem;
+    .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
+        font-size: 1.65rem;
+    }
+
+
+    .Foot_Left p {
+        font-size: 1.2rem;
+        color: #777777;
     }
 
     .Single_Post_Actions .icon {
         font-size: 1.8rem;
+        cursor: pointer;
     }
 
-    .Single_Post_Actions .trash {
-        margin-left: 15px;
-    }
 
     .Single_Post_Title {
-        font-size: 2.5rem;
+        margin: 10px 0;
+        font-size: 2.1rem;
     }
 
     .Single_Post_Body {
@@ -430,46 +403,58 @@
     }
 
     .Single_Post_Body p {
-        font-size: 1.5rem;
-        line-height: 37px;
-        letter-spacing: 0.8px;
-    }
-
-    .Single_Post_Body p::first-letter {
-        font-size: 4rem;
-    }
-
-
-    .Previous img,
-    .Next img {
-        height: 9rem;
-    }
-
-    .Pagination_Overlay {
-        height: 9rem;
-    }
-
-    .Pagination_Content h2 {
-        font-size: 2.3rem;
-    }
-
-    .Pagination_Content p {
         font-size: 1.4rem;
-        font-weight: 550;
     }
+
 
     .Comment_Head h2 {
-        font-size: 1.37rem;
+        font-size: 1.4rem;
     }
 
     .Comment_Btn {
-        border: 1.7px solid #021c3c;
-        padding: 7px 15px;
-        font-size: 1.15rem;
+        border: 1.7px solid #525252;
+        padding: 6.5px 15px;
+        font-size: 1.1rem;
     }
 
     .Comment_Btn .icon {
         font-size: 1.3rem;
+    }
+
+    .Form_Heading {
+        border-bottom: 1.7px solid #e9e9e9;
+    }
+
+    .Form_Heading .Creator {
+        width: 2.7rem;
+        height: 2.7rem;
+    }
+
+    .Form_Heading .Creator h1 {
+        font-weight: 550;
+        font-size: 1.4rem;
+    }
+
+    .Form_Heading_Img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .Form_Heading_Commenter {
+        font-size: 1.15rem;
+    }
+
+    .Comment_Form_Area {
+        border: 1.7px solid #eceaea;
+        font-size: 1.1rem;
+    }
+
+
+
+    .Create_Comment {
+        padding: 6px 15px;
+        border-radius: 4px;
+        font-size: 1.2rem;
     }
 
 
@@ -478,66 +463,57 @@
         margin-top: 20px;
     }
 
-    .Commenter_Img,
-    .Replier_Img {
-        width: 3.5rem;
-        height: 3.5rem;
+    .Single_Comment {
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .Commenter_Head {
+        border-bottom: 1.7px solid #ebebeb;
+
+    }
+
+    .Commenter_Img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .Commenter_Img img {
+        border: 1.8px solid #f0f0f0;
     }
 
 
-    .Commenter_Info h2,
-    .Replier_Info h2 {
-        font-size: 1.37rem;
+    .Commenter_Info h2 {
+        font-size: 1.2rem;
     }
 
-    .Commenter_Info p,
-    .Replier_Info p {
-        font-size: 1.1rem;
-        
-    }
-
-    .Comment_Body p,
-    .Reply_Body p {
-        font-size: 1.35rem;
-        letter-spacing: 1px;
-        line-height: 28px;
+    .Commenter_Info p {
+        font-size: 1rem;
     }
 
 
-    .line_ {
-        height: 1.7rem;
+    .Comment_Body p {
+        font-size: 1.15rem;
     }
-
-    .Single_Comment_Actions p,
-    .Reply_Actions p {
-        font-size: 1.35rem;
-        display: flex;
-        align-items: center;
-    }
-
-    .Single_Comment_Actions .icon,
-    .Reply_Actions .icon {
-        margin-right: 5px;
-        font-size: 1.8rem;
-    }
-
-    
-
-    .Single_Post_Author {
-        padding: 5rem 0;
-    }
-
-    .Categories_ {
-        margin: 3rem 0;
-    }
-
 
     .RelatedPosts {
         margin-bottom: 2rem;
     }
-
-
     
+    .Right_Sidebar_Icon {
+        display: block;
+        /* z-index: 1000; */
+    }
+
+    .Single_Post_Right_Small_Screen {
+        display: block;
+    }
+
+    .Single_Post_Author {
+        padding: 4rem 0;
+    }
+
+
 }
 
 
@@ -548,57 +524,80 @@
         /* position: relative; */
     }
 
-    .Single_Post {
-        padding: 10px;
-    }
-
-    .Single_Post_Right {
+    .Single_Post_Right, .Single_Post_Actions {
         display: none;
     }
 
-    .Single_Post_Right_Small_Screen {
+    .Small_Screen {
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 7px;
     }
 
-    .Single_Post_Left_Head .Post_Head_Left {
-        width: 5rem;
-        height: 4rem;
+    .Single_Post {
+        width: 100%;
+        padding: 1rem 10px;
     }
 
-    .Single_Post_Left_Head .Post_Head_Left .img {
+    .Single_Post_Img {
+        width: 100%;
+        height: 13rem;
+        /* background-color: red; */
+    }
+
+    .Single_Post_Img img {
         width: 100%;
         height: 100%;
+        border-radius: 5px;
+        object-fit: cover;
     }
 
-
-    .Single_Post_Left_Head .Post_Head_Right h2 {
-        font-size: 1.5rem;
-    }
-
-    .Single_Post_Left_Head .Post_Head_Right .Foot_Left {
-        display: flex;
-        flex-direction: column;
+    .Small_Screen .Single_Post_Actions {
+        display: block;
         margin: 0;
     }
 
-    .Single_Post_Left_Head .Post_Head_Right .Foot_Left .line_ {
-        display: none;
-    }
-
-    .Single_Post_Left_Head .Foot_Left p {
-        font-size: 1.2rem;
-    }
-
-    .Single_Post_Actions .icon {
+    .Small_Screen .Single_Post_Actions .icon {
         font-size: 1.7rem;
+        cursor: pointer;
     }
 
-    .Single_Post_Actions .trash {
-        margin-left: 18px;
+    .Small_Screen .Single_Post_Actions .trash {
+        margin-left: 20px;
+    }
+
+    .Small_Screen .Small_Screen_Date {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .Single_Post .Single_Post_Left_Head .Creator {
+        width: 2.5rem;
+        margin-right: 10px;
+        /* background-color: red; */
+    }
+
+    .Single_Post .Single_Post_Left_Head .Creator h1 {
+        font-size: 2.3rem;
+    }
+
+    .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
+        font-size: 1.4rem;
+    }
+
+
+    .Foot_Left p {
+        width: 100%;
+        font-size: 1.15rem;
+        color: #777777;
     }
 
     .Single_Post_Title {
-        font-size: 2.3rem;
+        width: 100%;
+        margin: 10px 0;
+        font-size: 1.9rem;
     }
 
     .Single_Post_Body {
@@ -607,148 +606,134 @@
     }
 
     .Single_Post_Body p {
-        width: 100%;
-        font-size: 1.35rem;
-        line-height: 37px;
-        letter-spacing: 0.8px;
-    }
-
-    .Single_Post_Body p::first-letter {
-        font-size: 4rem;
-    }
-
-
-    .Previous img,
-    .Next img {
-        height: 9rem;
-    }
-
-    .Pagination_Overlay {
-        height: 9rem;
-    }
-
-    .Pagination_Content {
-        width: 100%;
-        top: 10%;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .Pagination_Content h2 {
-        font-size: 2.35rem;
-        width: 100%;
-        line-height: 40px;
-    }
-
-    .Pagination_Content p {
-        font-size: 1.4rem;
-        font-weight: 550;
-        margin-left: 10px;
-    }
-
-    .Next p {
-        position: absolute;
-        right: 1rem;
-        bottom: -25px;
+        font-size: 1.3rem;
     }
 
     .Comment_Head {
+        display: flex;
         flex-direction: column;
     }
 
+
     .Comment_Head h2 {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         margin-bottom: 20px;
     }
 
     .Comment_Btn {
-        border: 1.7px solid #021c3c;
-        padding: 7px 15px;
-        font-size: 1.2rem;
-        display: flex;
-        align-items: center;
+        border: 1.7px solid #525252;
+        padding: 6px 15px;
+        font-size: 1.15rem;
     }
 
     .Comment_Btn .icon {
         font-size: 1.3rem;
     }
 
+    .Form_Heading {
+        border-bottom: 1.7px solid #e9e9e9;
+    }
+
+    .Form_Heading .Creator {
+        width: 2.7rem;
+        height: 2.7rem;
+    }
+
+    .Form_Heading .Creator h1 {
+        font-weight: 550;
+        font-size: 1.4rem;
+    }
+
+    .Form_Heading_Img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .Form_Heading_Commenter {
+        font-size: 1.15rem;
+    }
+
+    .Comment_Form_Area {
+        border: 1.7px solid #eceaea;
+        font-size: 1.1rem;
+    }
+
+
+
+    .Create_Comment {
+        padding: 6px 15px;
+        border-radius: 4px;
+        font-size: 1.2rem;
+    }
+
 
     .Comments {
         width: 100%;
-        margin-top: 20px;
+        margin: 20px 0;
     }
 
-    .Commenter_Head,
-    .Reply_Head {
-        border-bottom: 1.2px solid #ebebeb;
+    .Single_Comment {
+        padding: 20px;
+        border-radius: 5px;
     }
 
-    .Commenter_Img,
-    .Replier_Img {
-        width: 3.7rem;
-        height: 3.7rem;
-    }
-
-
-    .Commenter_Info h2,
-    .Replier_Info h2 {
-        font-size: 1.4rem;
-    }
-
-    .Commenter_Info p,
-    .Replier_Info p {
-        font-size: 1.15rem;
+    .Commenter_Head {
+        border-bottom: 1.7px solid #ebebeb;
 
     }
 
-    .Comment_Body p,
-    .Reply_Body p {
-        font-size: 1.35rem;
-        letter-spacing: 1px;
-        line-height: 28px;
+    .Commenter_Img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .Commenter_Img img {
+        border: 1.8px solid #f0f0f0;
+    }
+
+    .Commenter_Info {
+        margin-left: 8px;
     }
 
 
-    .line_ {
-        height: 1.7rem;
+    .Commenter_Info h2 {
+        font-size: 1.2rem;
     }
 
-    .Single_Comment_Actions p,
-    .Reply_Actions p {
-        font-size: 1.4rem;
+    .Commenter_Info > div {
         display: flex;
-        align-items: center;
+        flex-direction: column;
     }
 
-    .Single_Comment_Actions .icon,
-    .Reply_Actions .icon {
-        margin-right: 5px;
-        font-size: 1.8rem;
-    }
-
-    .Single_Post_Author {
-        padding: 5rem 0;
-    }
-
-    .Categories_ {
-        margin: 3rem 0;
-    }
-
-    .Categories_ h2 {
-        font-size: 1.4rem;
+    .Commenter_Info p {
+        font-size: 1rem;
+        margin-top: 3px;
     }
 
 
-    .Category p {
-        font-size: 1.25rem;
+    .Comment_Body p {
+        font-size: 1.15rem;
     }
 
     .RelatedPosts {
         margin-bottom: 2rem;
     }
+    
+    .Right_Sidebar_Icon {
+        display: block;
+        /* z-index: 1000; */
+    }
+
+    .Single_Post_Right_Small_Screen {
+        width: 100%;
+        display: block;
+    }
+
+    .Single_Post_Author {
+        width: 100%;
+        padding: 4rem 0;
+    }
+
 
 
 }

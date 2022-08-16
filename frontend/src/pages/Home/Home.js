@@ -8,16 +8,11 @@ import { HiCubeTransparent } from 'react-icons/hi'
 
 import './home.css'
 import { RightSideBar } from '../../components/Right-Side_Bar/RightSideBar'
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { ScrollToTop } from '../../components/ScrollToTop';
 
 export const Home = () => {
     const [rightBar, setRightBar] = useState(false);
-    const [closeRightBar, setCloseRightBar] = useState(false);
-
-    const close_rightbar = () => {
-        setCloseRightBar(true);
-        setRightBar(false);
-    }
+   
     return (
         <div className={!rightBar ? 'Home_Component' : 'Set_Fixed'}>
             <div className={!rightBar ? 'Display_None' : 'Overlay'}></div>
@@ -25,16 +20,17 @@ export const Home = () => {
                 <title>Home</title>   
             </Helmet>
             <Header />
+            <ScrollToTop />
             <div className='Main_Container'>
                 <Category />
                 <Posts />
             </div>
+            
             <div className='Right_Sidebar_Icon'>
-                <HiCubeTransparent className='icon' onClick={(e) => setRightBar(!rightBar)} />
+                <HiCubeTransparent className='icon' onClick={() => setRightBar(!rightBar)} />
             </div>
             {rightBar && (
-                <div className='Right_Side_Component'>
-                    <AiFillCloseCircle className='Close_Right_Sidebar' onClick={close_rightbar} />
+                <div className='Right_Side_Component Dark_Mode_Background'>
                     <RightSideBar />
                 </div>
             )}

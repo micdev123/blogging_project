@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer, useState } from 'react'
-import { Post } from '../../components/Post/Post'
-import { MdDateRange, MdWorkspacesFilled } from 'react-icons/md';
-import { BiCurrentLocation, BiLike, BiOutline } from 'react-icons/bi';
+import { MdArticle, MdDateRange, MdWorkspacesFilled } from 'react-icons/md';
+import { BiCurrentLocation } from 'react-icons/bi';
 import { BsFacebook, BsGithub, BsTwitter, BsYoutube } from 'react-icons/bs';
 import { RiInstagramFill } from 'react-icons/ri';
 import { AiOutlineLink } from 'react-icons/ai';
@@ -9,12 +8,11 @@ import { format } from "timeago.js"
 
 
 import './post-author.css'
-import { FaRegComment } from 'react-icons/fa';
-import { GrArticle } from 'react-icons/gr';
-import { useLocation, useParams } from 'react-router';
 import { publicRequest } from '../../requestController';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { Article } from '../../components/Article/Article';
+import { ProgressBar } from '../../components/ProgressBar';
 
 const initialState = {
     posts: [],
@@ -43,7 +41,7 @@ export const Author = () => {
 
     const { url } = useParams();
     // const url = location.pathname.split("/")[1];
-    console.log(url);
+    // console.log(url);
 
     const [{ isLoading, error, user_posts }, dispatch] = useReducer(reducer, initialState);
 
@@ -68,38 +66,38 @@ export const Author = () => {
     }, [url])
     
     return (
-        isLoading ? (<div>Loading...</div>) : error ? (<p>{ error }</p>) : (
+        isLoading ? (<ProgressBar />) : error ? (<p>{ error }</p>) : (
             <div className='Author_Component'>
                 <Helmet>
                     <title>Author</title>     
                 </Helmet>
                 <div className='Main_Container'>
                     <div className='Author__Container'>
-                        <div className='Author_Profile'>
+                        <div className='Author_Profile Dark_Mode_Background'>
                             <div className='Author_Profile_Head'>
                                 {
-                                    authorPosts.user && authorPosts.user.photo ? (
+                                    authorPosts?.user && authorPosts?.user.photo ? (
                                         <div className='Author__Img'>
-                                            <img src={Images_Folder + authorPosts.user.photo} alt={authorPosts.user.photo} />
+                                            <img src={Images_Folder + authorPosts?.user.photo} alt={authorPosts.user.photo} />
                                         </div>
                                     ) : (
                                         <div className='Creator'>
-                                            <h1>
+                                            <h1 className='Dark_Mode'>
                                                 {authorPosts.user && `${authorPosts.user.name.substring(0, 1)}`}
                                             </h1>
                                         </div>
                                     )
                                 }
                                 <div className='Author_Head_Content'>
-                                    {authorPosts.user && (<h2 className='Author_Name'>{authorPosts.user.name}</h2>)}
+                                    {authorPosts?.user && (<h2 className='Author_Name Dark_Mode'>{authorPosts?.user.name}</h2>)}
                                     
                                     <div className='Author_Fields'>
-                                        <p className='Author_Field'>{authorPosts.user && authorPosts.user.fields}</p>
+                                        <p className='Author_Field Dark_Mode_P'>{authorPosts?.user && authorPosts?.user.fields}</p>
                                     </div>
                                     
-                                    <p className='Website_Link'>
-                                        <AiOutlineLink className='icon'/>
-                                        {authorPosts.user && authorPosts.user.userUrl}
+                                    <p className='Website_Link Dark_Mode_P'>
+                                        <AiOutlineLink className='icon Dark_Mode_P'/>
+                                        {authorPosts?.user && authorPosts?.user.userUrl}
                                     </p>
                                 </div>
                             </div>
@@ -109,65 +107,65 @@ export const Author = () => {
                                         <p>{authorPosts.user.shortBio}</p>
                                     )}
                                 </div>
-                                <p className='Author_Date_Joined'>
-                                    <MdDateRange className='icon' />
+                                <p className='Author_Date_Joined Dark_Mode_P'>
+                                    <MdDateRange className='icon Dark_Mode_P' />
                                     Member Since
                                     {authorPosts.user && (
                                         <span>{format(authorPosts.user.createdAt)}</span>
                                     )}
                                 </p>
-                                {authorPosts.user && authorPosts.user.location && (
-                                    <p className='Author_Location'>
-                                        <BiCurrentLocation className='icon' />
-                                        {authorPosts.user.location}
+                                {authorPosts?.user && authorPosts?.user.location && (
+                                    <p className='Author_Location Dark_Mode_P'>
+                                        <BiCurrentLocation className='icon Dark_Mode_P' />
+                                        {authorPosts?.user.location}
                                     </p>
                                 )}
 
-                                {authorPosts.user && authorPosts.user.work && (
-                                    <p className='Author_Job'>
-                                        <MdWorkspacesFilled className='icon' />
-                                        {authorPosts.user.work}
+                                {authorPosts?.user && authorPosts?.user.work && (
+                                    <p className='Author_Job Dark_Mode_P'>
+                                        <MdWorkspacesFilled className='icon Dark_Mode_P' />
+                                        {authorPosts?.user.work}
                                     </p>
                                 )}
                                 
-                                {authorPosts.user && authorPosts.user.keywords && (
-                                        <div className='Author_Profile_Keywords'>
-                                            {authorPosts.user.keywords.split(', ').map((keyword) => (
-                                                <Link to={`/?tag=${keyword}`} className='Keyword'>
-                                                    <p>{keyword}</p>
-                                                </Link>
-                                            ))}
-                                        </div>
+                                {authorPosts?.user && authorPosts?.user.keywords && (
+                                    <div className='Author_Profile_Keywords'>
+                                        {authorPosts?.user.keywords.split(', ').map((keyword) => (
+                                            <Link to={`/?tag=${keyword}`} className='Keyword' key={keyword}>
+                                                <p className='Dark_Mode_P'>{keyword}</p>
+                                            </Link>
+                                        ))}
+                                    </div>
                                  )}
 
                                 <div className='Author_Profile_Socials'>
-                                    {authorPosts.user && authorPosts.user.websiteLink &&(
-                                        <a target="_blank" rel="noreferrer" href={authorPosts.user.websiteLink} className='Link'>
-                                            <AiOutlineLink className='icon' />
+                                    {authorPosts?.user && authorPosts?.user.websiteLink &&(
+                                        <a target="_blank" rel="noreferrer" href={authorPosts?.user.websiteLink} className='Link '>
+                                            <AiOutlineLink className='icon Dark_Mode_P' />
                                         </a>
                                     )}
-                                    {authorPosts.user && authorPosts.user.gitHubLink &&(
-                                        <a target="_blank" rel="noreferrer" href={authorPosts.user.gitHubLink} className='Link'>
+                                    {authorPosts?.user && authorPosts?.user.gitHubLink &&(
+                                        <a target="_blank" rel="noreferrer" href={authorPosts?.user.gitHubLink} className='Link Dark_Mode_P'>
                                             <BsGithub className='icon' />
                                         </a>
                                     )}
-                                    {authorPosts.user && authorPosts.user.facebookLink &&(
-                                        <a target="_blank" rel="noreferrer" href={authorPosts.user.facebookLink} className='Link'>
+                                    {authorPosts?.user && authorPosts?.user.facebookLink &&(
+                                        <a target="_blank" rel="noreferrer" href={authorPosts?.user.facebookLink} className='Link Dark_Mode_P'>
                                             <BsFacebook className='icon' />
                                         </a>
                                     )}
-                                    {authorPosts.user && authorPosts.user.twitterLink &&(
-                                        <a target="_blank" rel="noreferrer" href={authorPosts.user.twitterLink} className='Link'>
+                                    {authorPosts?.user && authorPosts?.user.twitterLink &&(
+                                        <a target="_blank" rel="noreferrer" href={authorPosts?.user.twitterLink} className='Link Dark_Mode_P'>
                                             <BsTwitter className='icon' />
                                         </a>
                                     )}
-                                    {authorPosts.user && authorPosts.user.youtubeLink &&(
-                                        <a target="_blank" rel="noreferrer" href={authorPosts.user.youtubeLink} className='Link'>
+                                    {authorPosts?.user && authorPosts?.user.youtubeLink &&(
+                                        <a target="_blank" rel="noreferrer" href={authorPosts?.user.youtubeLink} className='Link Dark_Mode_P'>
                                             <BsYoutube className='icon' />
                                         </a>
                                     )}
-                                    {authorPosts.user && authorPosts.user.instagramLink &&(
-                                        <a target="_blank" rel="noreferrer" href={authorPosts.user.instagramLink} className='Link'>
+                                    {authorPosts?.user && authorPosts?.user.instagramLink &&(
+                                        <a target="_blank" rel="noreferrer" href={authorPosts.user.instagramLink} className='Link Dark_Mode_P'>
                                             <RiInstagramFill className='icon' />
                                         </a>
                                     )}
@@ -175,79 +173,24 @@ export const Author = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='Author_Works'>
+                        <div className='Author_Works Dark_Mode_Background'>
                             <div className='Author_Works_Head'>
-                                <h2>
-                                    <GrArticle className='icon' />
+                                <h2 className='Dark_Mode'>
+                                    <MdArticle className='icon Dark_Mode_P' />
                                     Published Work
                                 </h2>
-                                <p>
+                                <p className='Dark_Mode_P'>
                                     <span>
-                                        {authorPosts.posts && authorPosts.posts.length}
+                                        {authorPosts?.posts && authorPosts?.posts.length}
                                     </span>
-                                    {authorPosts.posts && authorPosts.posts.length === 1 ? 'Post' : 'Posts'} published
+                                    {authorPosts?.posts && authorPosts?.posts.length === 1 ? 'Post' : 'Posts'} published
                                 </p>
                             </div>
                             <div className='Author_Work_Container'>
-                                {authorPosts.posts && authorPosts.posts.length !== 0 && (
-                                    authorPosts.posts.map((post) => (
-                                        <div className='Author_Work'>
-                                            <div className='Work_Image'>
-                                                <img src={Images_Folder + post.photo} alt='Post_Img' />
-                                            </div>
-                                            <div className='Author_Work_Contents'>
-                                                <div className='Author_Work_Contents_Head'>
-                                                    {post.creatorPhoto ? (
-                                                        <div className='Work_Head_Left'>
-                                                            <img src={Images_Folder + post.creatorPhoto} alt='Author_Img' />
-                                                        </div>
-                                                        ) : (
-                                                            <div className='Creator'>
-                                                                <h1>
-                                                                    {post.creator && `${post.creator.substring(0, 1)}`}
-                                                                </h1>
-                                                            </div>
-                                                        )
-                                                    }
-                                                    <div className='Work_Head_Right'>
-                                                        <h2>{post.creator}</h2>
-                                                        <div className='Work_Head_Right_Foot_'>
-                                                            <p>{post.creatorLink}</p>
-                                                            <div className='line'></div>
-                                                            <p>{format(post.createdAt)}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className='Work_Contents_Body'>
-                                                    <Link to={`/post/${post.slug}_${post._id}`} className='Link'>
-                                                        <h2 className='Work_Contents_Body_Title'>
-                                                            {post.title}
-                                                        </h2>
-                                                        <p className='Work_Contents_Body_Desc'>
-                                                            {post.desc && `${post.desc.substring(0, 250)}...`}
-                                                        </p>
-                                                    </Link>
-                                                    <div className='Work_Contents_Body_Tags'>
-                                                        {post.tags.map((tag) => (
-                                                            <Link to={`/?tag=${tag}`} className='Tag'>
-                                                                <p>{tag}</p>
-                                                            </Link>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                                <div className='Work_Contents_Foot'>
-                                                    <p>2 min read</p>
-                                                    <div className='line'></div>
-                                                    <p className='info'>
-                                                        <BiLike className='icon' />
-                                                        10
-                                                    </p>
-                                                    <p className='info comment'>
-                                                        <FaRegComment className='icon' />
-                                                        10
-                                                    </p>
-                                                </div>
-                                            </div>
+                                {authorPosts?.posts && authorPosts?.posts.length !== 0 && (
+                                    authorPosts?.posts.map((post) => (
+                                        <div className='Author_Work' key={post._id}>
+                                            <Article post={post} />
                                         </div>
                                     ))
                                 )}

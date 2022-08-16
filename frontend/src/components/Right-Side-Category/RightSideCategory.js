@@ -30,10 +30,13 @@ export const RightSideCategory = () => {
             }
          });
     });
+    const joinTags = postTags.join(',')
+    const Tags = joinTags.split(',')
+    const uniqueTags = Tags.filter((x, i, a) => a.indexOf(x) === i)
     return (
         <div className='RightSideCategory_Component'>
-            {postTags && postTags.map((tag) => (
-                <Link to={`/?tag=${tag}`} className='Tag'>
+            {uniqueTags && uniqueTags.map((tag) => (
+                <Link to={`/?tag=${tag}`} key={tag} className='Tag'>
                     <p>{tag}</p>
                 </Link>  
             ))}

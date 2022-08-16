@@ -145,6 +145,10 @@
 
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
+    .Author_RightSide_Component {
+        width: 100%;
+    }
+    
     .Author_RightSide_Title h2 {
         font-weight: 550;
         color: #414141;

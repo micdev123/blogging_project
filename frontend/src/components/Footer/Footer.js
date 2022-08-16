@@ -6,8 +6,8 @@ import './footer.css'
 
 export const Footer = () => {
     return (
-        <div className='Footer_Component'>
-            <p>&copy;copyrights :: Mic__Dev.com ~ Blogging.com</p>
+        <div className='Footer_Component Dark_Mode_Background'>
+            <p className='Dark_Mode_P'>&copy;copyrights :: Mic__Dev.com ~ Blogging.com</p>
             <div className='Footer_Socials'>
                 <BsGithub className='icon' />
                 <BsTwitter className='icon' />

@@ -19,20 +19,37 @@ const createPost = asyncHandler(async (req, res) => {
 
 
 // Get all posts :: GET request : endpoint /api/posts :: access public
+const PAGE_SIZE = 8;
 const getPosts = asyncHandler(async (req, res) => {
-    const creator = req.query.user;
     const tag = req.query.tag;
+    const pageSize = req.query.pageSize || PAGE_SIZE;
+    const page = req.query.page || 1;
     try {
         let posts;
-        if (creator) {
-            posts = await Post.find({ creator }).sort({ _id: -1 });
-        }
-        else if (tag) {
-            posts = await Post.find({ tags: { $in: [tag], },}).sort({ _id: -1 });
+        if (tag) {
+            posts = await Post.find({ tags: { $regex: tag },}).sort({ _id: -1 });
         }
         else {
-            posts = await Post.find().sort({ _id: -1 });
+            posts = await Post.find().sort({ _id: -1 }).skip(pageSize * (page - 1)).limit(pageSize);
         }
+        const countPosts = await Post.countDocuments();
+        res.status(200).json({
+            posts,
+            countPosts,
+            page,
+            pages: Math.ceil(countPosts / pageSize),
+        })
+    } 
+    catch (error) {
+        res.status(500).json(error)
+    }
+    
+})
+
+const getPostsWithMostLikes = asyncHandler(async (req, res) => {
+    try {
+        
+        const posts = await Post.find().sort({ likeCount: -1 }).limit(5);
         
         res.status(200).json(posts)
     } 
@@ -48,6 +65,18 @@ const getUserPosts = asyncHandler(async (req, res) => {
         const user = await User.findOne({ userUrl: req.params.url })
         const posts = await Post.find({ creatorLink: req.params.url }).sort({ _id: -1 });
         res.status(200).json({user, posts});
+    }
+    catch (error) {
+        res.status(500).json(error)
+    }
+    
+})
+
+// Get all user post
+const getMyPosts = asyncHandler(async (req, res) => {
+    try {
+        const posts = await Post.find({ creatorId: req.params.id }).sort({ _id: -1 });
+        res.status(200).json(posts);
     }
     catch (error) {
         res.status(500).json(error)
@@ -153,7 +182,7 @@ const getPostTags = asyncHandler(async (req, res) => {
 
 const likePost = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    console.log(id);
+    // console.log(id);
     try {
         const post = await Post.findById(id);
         if (post) {
@@ -178,7 +207,7 @@ const likePost = asyncHandler(async (req, res) => {
 
 const unLikePost = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    console.log(id);
+    // console.log(id);
     try {
         const post = await Post.findById(id);
         if (post) {
@@ -200,6 +229,18 @@ const unLikePost = asyncHandler(async (req, res) => {
     }
 })
 
+const postComments = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const value = req.body;
+    // console.log(value);
+    const post = await Post.findById(id);
+
+    post.comments.push(value);
+
+    const updatedPost = await Post.findByIdAndUpdate(id, post, { new: true })
+
+    res.status(200).json(updatedPost);
+})
 
 
 module.exports = {
@@ -211,7 +252,10 @@ module.exports = {
     getUserPosts,
     getPostTags,
     likePost,
-    unLikePost
+    unLikePost,
+    postComments,
+    getPostsWithMostLikes,
+    getMyPosts
 }
 
 

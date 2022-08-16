@@ -34,18 +34,18 @@
     align-items: center;
     cursor: pointer;
     outline: none;
-    color: #706f6f;
+    color: #383737;
 }
 
 .Settings_Links .Link .icon {
     margin-right: 5px;
 }
 
-.Settings_Links .Link.active {
+.Settings_Links .Link:hover {
     background-color: #f5fffc;
     border-radius: 8px;
-    font-weight: 550;
-    color: #1a1a1a;
+    /* font-weight: 550;
+    color: #1a1a1a; */
 }
 
 .Settings_Links .Link .trash {

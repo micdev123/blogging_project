@@ -60,13 +60,13 @@ export const Register = () => {
                     <title>Register</title>     
                 </Helmet>
                 <div className='Auth_Container'>
-                    <form className='Auth_Form' onSubmit={submitHandler}>
+                    <form className='Auth_Form Dark_Mode_Background' onSubmit={submitHandler}>
                         {msg && (<p className='msg'>{msg}</p>)}
-                        <h2>Create An Account</h2>
-                        <input type='text' name='name' placeholder='Enter full name' required ref={nameRef} />
-                        <input type='email' name='email' placeholder='Enter email' required ref={emailRef} />
-                        <input type='password' name='password' placeholder='Enter password' required ref={passwordRef} />
-                        <input type='password' name='confirm_password' placeholder='confirm password' ref={confirmedPasswordRef}  required  />
+                        <h2 className='Dark_Mode'>Create An Account</h2>
+                        <input type='text' name='name' placeholder='Enter full name' required ref={nameRef} className="Dark_Mode_Background" />
+                        <input type='email' name='email' placeholder='Enter email' required ref={emailRef} className="Dark_Mode_Background" />
+                        <input type='password' name='password' placeholder='Enter password' required ref={passwordRef} className="Dark_Mode_Background" />
+                        <input type='password' name='confirm_password' placeholder='confirm password' ref={confirmedPasswordRef}  required className="Dark_Mode_Background" />
                         <button type='submit' className='Auth_Btn'>Register</button>
                         
                         <button className='Info'>

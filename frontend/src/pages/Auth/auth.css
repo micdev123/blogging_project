@@ -8,6 +8,13 @@
     min-height: 80vh;
 }
 
+.msg {
+    background-color: #d55656;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 
 .Auth_Form {
     width: 28rem;

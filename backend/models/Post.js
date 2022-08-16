@@ -22,12 +22,16 @@ const PostSchema = new mongoose.Schema(
             required: true
         },
         tags: {
-            type: [String],
-            default: [""]
+            type: String,
+            default: ""
         },
         likeCount: {
             type: Number,
             default: 0
+        },
+        duration: {
+            type: Number,
+            required: true
         },
         creatorId: {
             type: String,
@@ -42,6 +46,10 @@ const PostSchema = new mongoose.Schema(
         creatorLink: {
             type: String,
             default: "",
+        },
+        comments: {
+            type: [{}],
+            default: []
         }
     },
     {timestamps: true}

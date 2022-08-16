@@ -74,70 +74,71 @@ export const Post = ({ data }) => {
         setLikeState(true);
     }
     return (
-        <div className='Post_Component' key={data._id}>
+        <div className='Post_Component Dark_Mode_Background' key={data?._id}>
             <div className='Post_Contents'>
+                <p className='Small_Screen_Date Dark_Mode_P'>{format(data?.createdAt)}</p>
                 <div className='Post_Contents_Head'>
                     {
-                        data.creatorPhoto ? (
+                        data?.creatorPhoto ? (
                             <div className='Post_Head_Left'>
                                 <img src={Images_Folder + data.creatorPhoto} alt={data.creator} />
                             </div>
                         ) : (
                             <div className='Creator'>
-                                <h1>
-                                    {data.creator && `${data.creator.substring(0, 1)}`}
+                                <h1 className='Dark_Mode'>
+                                    {data?.creator && `${data?.creator.substring(0, 1)}`}
                                 </h1>
                             </div>
                         )
                     }
                         
                     <div className='Post_Head_Right'>
-                        <Link to={`/${data.creatorLink}`} className='Link'>
-                            <h2>{data.creator}</h2>
+                        <Link to={`/${data?.creatorLink}`} className='Link'>
+                            <h2 className='Dark_Mode'>{data?.creator}</h2>
                         </Link>
                         <div className='Post_Head_Right_Foot_'>
-                            <Link to={`/${data.creatorLink}`} className='Link'>
-                                <p>{data.creatorLink}</p>
+                            <Link to={`/${data?.creatorLink}`} className='Link'>
+                                <p className='Dark_Mode_P'>{data?.creatorLink}</p>
                             </Link>
-                            <div className='line'></div>
-                            <p>{format(data.createdAt)}</p>
+                            <div className='line Dark_Mode'></div>
+                            <p className='Date Dark_Mode_P'>{format(data?.createdAt)}</p>
                         </div>
                     </div>
                 </div>
                 <div className='Post_Contents_Body'>
-                    <Link to={`/post/${data.slug}_${data._id}`} className='Link'>
-                        <h2 className='Post_Contents_Body_Title'>
-                            {data.title}
+                    <Link to={`/post/${data?.slug}_${data?._id}`} className='Link'>
+                        <h2 className='Post_Contents_Body_Title Dark_Mode'>
+                            {data?.title}
                         </h2>
-                        <p className='Post_Contents_Body_Desc'>
-                            {data.desc && `${data.desc.substring(0, 200)}...`}
+                        <p className='Post_Contents_Body_Desc Dark_Mode_P'>
+                            {data?.desc && `${data.desc.substring(0, 200)}...`}
                         </p>
                     </Link>
                     <div className='Post_Contents_Body_Tags'>
-                        {data.tags.map((tag) => (
-                            <Link to={`/?tag=${tag}`} className='Tag'>
-                                <p>{tag}</p>
+                        {data?.tags.split(',').map((tag) => (
+                            <Link to={`/?tag=${tag}`} key={tag} className='Tag'>
+                                <p className='Dark_Mode_P'>{tag}</p>
                             </Link>
                         ))}
                     </div>
                 </div>
                 <div className='Post_Contents_Foot'>
-                    <p>2 min read</p>
-                    <div className='line'></div>
-                    <p className='info'>
+                    <p className='Dark_Mode_P'>{data?.duration} min read</p>
+                    <div className='line Line Dark_Mode_P'></div>
+                    <p className='info Dark_Mode_P'>
                         {likeState && (
-                            <BiLike className='icon' onClick={() => likePost(data._id)} />
+                            <BiLike className='icon Dark_Mode_P' onClick={() => likePost(data?._id)} />
                         )}
                         
                         {!likeState && (
-                            <BiDislike className='icon' onClick={() => unLikePost(data._id)} />
+                            <BiDislike className='icon Dark_Mode_P' onClick={() => unLikePost(data?._id)} />
                         )}
                         
                         {likes}
                     </p>
-                    <p className='info comment'>
-                        {loadingUpdate ? (<FaRegComment className='icon' />): (<FaRegComment className='icon' />)}
-                        10
+                    <p className='info comment Dark_Mode_P'>
+                        <FaRegComment className='icon' />
+                        {data?.comments.length}
                     </p>
                 </div>
             </div>

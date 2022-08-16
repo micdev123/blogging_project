@@ -1,7 +1,6 @@
 const express = require('express')
 // Accessing controllers from controllers productController
-const { getPosts, createPost, updatePost, deletePost, getUserPosts, getPost, getPostTags, likePost, unLikePost } = require('../controllers/postController')
-const { authorizedToken } = require('../middleware/authMiddleware')
+const { getPosts, createPost, updatePost, deletePost, getUserPosts, getPost, getPostTags, likePost, unLikePost, postComments, getPostsWithMostLikes, getMyPosts} = require('../controllers/postController')
 
 // Accessing express router fnx
 const router = express.Router()
@@ -9,6 +8,9 @@ const router = express.Router()
 // Get all posts
 router.get('/', getPosts)
 
+router.get('/limit', getPostsWithMostLikes)
+
+router.get('/mine/:id', getMyPosts);
 // Create posts
 router.post('/', createPost);
 
@@ -20,7 +22,6 @@ router.get('/find/:id', getPost);
 // Get user posts 
 router.get('/author/:url', getUserPosts);
 
-
 // Update post :: takes in the id of the post to update
 router.put('/:id', updatePost)
 
@@ -30,14 +31,11 @@ router.delete('/:id', deletePost)
 // Update likePost :: takes in the id of the post to update
 router.put('/:id/likePost', likePost)
 
-// Update unlikePost :: takes in the id of the post to update
+// Update likeCount:: takes in the id of the post to update
 router.put('/:id/unLikePost', unLikePost)
 
-
-
-// Get product
-// router.get('/slug/:slug', getPostBySlug);
-
+// Create comments :: takes in the id of the post to update
+router.post('/:id/postComment', postComments)
 
 
 

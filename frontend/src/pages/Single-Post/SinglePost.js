@@ -2,19 +2,21 @@ import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { AuthorRightSide } from '../../components/Author-Right-Side/AuthorRightSide'
 
 
-import { AiFillEdit, AiFillDelete, AiOutlineLike, AiFillCloseCircle } from 'react-icons/ai'
-import { BsFillReplyAllFill } from 'react-icons/bs'
+import { AiFillEdit, AiFillDelete, AiFillCloseCircle } from 'react-icons/ai'
+
 import { HiCubeTransparent } from 'react-icons/hi'
 
 import './single-post.css'
 import { RelatedPost } from '../../components/Related-Post/RelatedPost'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { publicRequest, userRequest } from '../../requestController';
+import { publicRequest } from '../../requestController';
 import { format } from "timeago.js"
 import { Store } from '../../Store';
 import { getError } from '../../utils';
 import { RightSideCategory } from '../../components/Right-Side-Category/RightSideCategory'
 import { Helmet } from 'react-helmet-async'
+import { PostComments } from './PostComments'
+import { ProgressBar } from '../../components/ProgressBar'
 
 
 
@@ -52,7 +54,7 @@ const reducer = (state, action) => {
 
 
 export const SinglePost = () => {
-    const PF = "http://localhost:5000/images/";
+    const Images_Folder = "http://localhost:5000/images/";
     const navigate = useNavigate();
     
     
@@ -94,9 +96,9 @@ export const SinglePost = () => {
 
     const [rightBar, setRightBar] = useState(false);
 
-    const close_rightBar = () => {
-        setRightBar(false);
-    }
+    // const close_rightBar = () => {
+    //     setRightBar(false);
+    // }
 
     const deleteHandler = async () => {
         if (window.confirm('Are you sure to delete?')) {
@@ -115,203 +117,112 @@ export const SinglePost = () => {
 
     return (
         <div className={!rightBar ? 'Single_Post_Component' : 'Set_Fixed'}>
-            {loadingDelete && (<div>Loading..</div>)}
-            {isLoading ? (<div>Loading..</div>) : error ? (<div>{error}</div>) : (
+            {loadingDelete && (<ProgressBar />)}
+            {isLoading ? (<ProgressBar />) : error ? (<div>{error}</div>) : (
                 <>
                     <Helmet>
                         <title>{post.title}</title>
                     </Helmet>
                     <div className={!rightBar ? 'Display_None' : 'Overlay_Single_Post'}></div>
                     <div className='Main_Container'>
-                    <div className='Single_Post_Container'>
-                        <div className='Single_Post_Left'>
-                            <div className='Single_Post'>
-                                <div className='Single_Post_Img'>
-                                    <img src={PF + post.photo} alt='Single_Post_Img' />
-                                </div>
-                                <div className='Single_Post_Left_Contents'>
-                                    <div className='Single_Post_Left_Head'>
-                                        <div className='Post_Head_Left'>
+                        <div className='Single_Post_Container'>
+                            <div className='Single_Post_Left'>
+                                <div className='Single_Post Dark_Mode_Background'>
+                                    <div className='Single_Post_Img'>
+                                        <img src={Images_Folder + post.photo} alt='Single_Post_Img' />
+                                    </div>
+                                    <div className='Single_Post_Left_Contents'>
+                                        <div className='Small_Screen'>
+                                            <p className='Small_Screen_Date Dark_Mode_P'>{format(post?.createdAt)}</p>
+                                            {userInfo && post?.creatorId === userInfo?._id && (
+                                                <div className='Single_Post_Actions'>
+                                                    <AiFillEdit className='icon edit' onClick={() => navigate(`/updatePost/${post?._id}`)} />
+                                                    <AiFillDelete className='icon trash' onClick={deleteHandler} />
+                                                </div>
+                                            )}
+                                        </div>
+                                        <div className='Single_Post_Left_Head'>
                                             {
-                                                post.creatorPhoto ? (
-                                                    <div className='Creator_Img'>
-                                                        <img src={post.creatorPhoto} alt={post.creator} />
+                                                post?.creatorPhoto ? (
+                                                    <div className='Post_Head_Left'>
+                                                        <img src={Images_Folder + post?.creatorPhoto} alt={post.creator} />
                                                     </div>
                                                 ) : (
                                                     <div className='Creator'>
-                                                        <h1>
-                                                            {post.creator && `${post.creator.substring(0, 1)}`}
+                                                        <h1 className='Dark_Mode'>
+                                                            {post?.creator && `${post?.creator.substring(0, 1)}`}
                                                         </h1>
                                                     </div>
                                                 )
                                             }
-                                        </div>
-                                        <div className='Post_Head_Right'>
-                                            <Link to={`/${post.creatorLink}`} className='Link'>
-                                                <h2>{post.creator}</h2>
-                                            </Link>
-                                            <div className='Post_Head_Right_Foot'>
-                                                <div className='Foot_Left'>
-                                                    <Link to={`/${post.creatorLink}`} className='Link'>
-                                                        <p>{post.creatorLink}</p>
-                                                    </Link>
-                                                    
-                                                    <div className='line_'></div>
-                                                    <p>{format(post.createdAt)}</p>
-                                                </div>
-                                                {userInfo && post.creatorId === userInfo._id && (
-                                                    <div className='Single_Post_Actions'>
-                                                        <AiFillEdit className='icon edit' onClick={() => navigate(`/updatePost/${post._id}`)} />
-                                                        <AiFillDelete className='icon trash' onClick={deleteHandler} />
+                                            <div className='Post_Head_Right'>
+                                                <Link to={`/${post?.creatorLink}`} className='Link'>
+                                                    <h2 className='Dark_Mode'>{post?.creator}</h2>
+                                                </Link>
+                                                <div className='Post_Head_Right_Foot'>
+                                                    <div className='Foot_Left'>
+                                                        <Link to={`/${post?.creatorLink}`} className='Link'>
+                                                            <p className='Dark_Mode_P'>{post?.creatorLink}</p>
+                                                        </Link>
+                                                        
+                                                        <div className='line'></div>
+                                                        <p className='Date Dark_Mode_P'>{format(post?.createdAt)}</p>
                                                     </div>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <h2 className='Single_Post_Title'>
-                                        {post.title}
-                                    </h2>
-                                    <div className='Single_Post_Body'>
-                                        <p>
-                                            {post.desc}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='Single_Post_Left_Footer'>
-                                <div className='Pagination'>
-                                    <div className='Previous'>
-                                        <div className='Pagination_Overlay'></div>
-                                        <img src='/assets/featured.png' alt='Previous' />
-                                        <div className='Pagination_Content'>
-                                            <h2>Data Structure In Javascript</h2>
-                                            <p>Previous</p>
-                                        </div>
-                                    </div>
-                                    <div className='Next'>
-                                        <div className='Pagination_Overlay'></div>
-                                        <img src='/assets/blog-img.png' alt='Next' />
-                                        <div className='Pagination_Content'>
-                                            <h2>Recursion In JavaScript</h2>
-                                            <p>Next</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className='Single_Comments'>
-                                    <div className='Comment_Head'>
-                                        <h2>Comments(2)</h2>
-                                        <button className='Comment_Btn'>
-                                            <AiFillEdit className='icon'/>
-                                            Leave a comment
-                                        </button>
-                                    </div>
-                                    <div className='Comment_Form'></div>
-                                    <div className='Comments'>
-                                        <div className='Single_Comment'>
-                                            <div className='Commenter_Head'>
-                                                <div className='Commenter_Img'>
-                                                    <img src='/assets/blog1.png' alt='Commenter_Img' />
-                                                </div>
-                                                <div className='Commenter_Info'>
-                                                    <h2>Hellen Bangura</h2>
-                                                    <div>
-                                                        <p>Web Developer</p>
-                                                        <p>1 hour ago</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className='Comment_Body'>
-                                                <p>
-                                                    Proident laborum aute aliqua consequat ad pariatur non cillum magna magna consequat duis ad. Officia veniam nisi proident enim aute in exercitation adipisicing est in deserunt tempor labore commodo. Sunt elit ipsum magna minim sunt pariatur ipsum ea dolore dolor culpa elit.
-                                                </p>
-                                                <div className='Single_Comment_Actions'>
-                                                    <p className='Reply_Btn'>
-                                                        <BsFillReplyAllFill className='icon' />
-                                                        Reply
-                                                    </p>
-                                                    <p className='line_'></p>
-                                                    <p>
-                                                        <AiOutlineLike className='icon' />
-                                                        <span>1</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            <div className='Reply_Container'>
-                                                <div className='Reply_Head'>
-                                                    <div className='Replier_Img'>
-                                                        <img src='/assets/blog1.png' alt='Replyer_Img' />
-                                                    </div>
-                                                    <div className='Replier_Info'>
-                                                        <h2>Hellen Bangura</h2>
-                                                        <div>
-                                                            <p>Web Developer</p>
-                                                            <p>1 hour ago</p>
+                                                    {userInfo && post?.creatorId === userInfo?._id && (
+                                                        <div className='Single_Post_Actions'>
+                                                            <AiFillEdit className='icon edit' onClick={() => navigate(`/updatePost/${post?._id}`)} />
+                                                            <AiFillDelete className='icon trash' onClick={deleteHandler} />
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div className='Reply_Body'>
-                                                    <p>
-                                                        Proident laborum aute aliqua consequat ad pariatur non cillum magna magna consequat duis ad. Officia veniam nisi proident enim aute in exercitation adipisicing est in deserunt tempor labore commodo. Sunt elit ipsum magna minim sunt pariatur ipsum ea dolore dolor culpa elit.
-                                                    </p>
-                                                </div>
-                                                <div className='Reply_Actions'>
-                                                    <p className='Reply_Btn'>
-                                                        <BsFillReplyAllFill className='icon' />
-                                                        Reply
-                                                    </p>
-                                                    <p className='line_'></p>
-                                                    <p>
-                                                        <AiOutlineLike className='icon' />
-                                                        <span>1</span>
-                                                    </p>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                        <h2 className='Single_Post_Title Dark_Mode'>
+                                            {post?.title}
+                                        </h2>
+                                        <div className='Single_Post_Body'>
+                                            <p className='Dark_Mode'>
+                                                {post?.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='RecommendedPost'>
+                                    <RelatedPost post={post} />
+                                </div>
+                                <div className='Single_Post_Left_Footer'>
+                                    <div className='Single_Comments'>
+                                        <PostComments post={post} /> 
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div className='Single_Post_Right'>
-                            <div className='Single_Post_Author'>
-                                <AuthorRightSide author={post.creatorId} />
-                                <div className='Categories_'>
-                                    <h2>Categories</h2>
-                                    
-                                    <div className='Category'>
-                                        <RightSideCategory />
-                                    </div>
-                                </div>
-                                <RelatedPost />
-                            </div>
-                        </div>
-
-                        <div className='Right_Sidebar_Icon'>
-                            <HiCubeTransparent className='icon' onClick={(e) => setRightBar(!rightBar)} />
-                        </div>
-
-                        {rightBar && (
-                            <div className='Single_Post_Right_Small_Screen'>
-                                <AiFillCloseCircle className='Close_Sidebar' onClick={close_rightBar} />
+                            
+                            <div className='Single_Post_Right'>
                                 <div className='Single_Post_Author'>
-                                    <AuthorRightSide />
-                                    <div className='Categories_'>
+                                    <AuthorRightSide author={post} />
+                                    <div className='Categories_ Dark_Mode_Background'>
                                         <h2>Categories</h2>
                                         <div className='Category'>
-                                            <p>Education</p>
-                                            <p>Medicine</p>
-                                            <p>Politics</p>
-                                            <p>Motivation</p>
-                                            <p>Economy</p>
+                                            <RightSideCategory />
                                         </div>
                                     </div>
-                                    <RelatedPost className='RelatedPosts' />
+                                    
                                 </div>
                             </div>
-                        )}
-                    </div>
+
+                            <div className='Right_Sidebar_Icon'>
+                                <HiCubeTransparent className='icon' onClick={(e) => setRightBar(!rightBar)} />
+                            </div>
+
+                            {rightBar && (
+                                <div className='Single_Post_Right_Small_Screen Dark_Mode_Background'>
+                                    <div className='Single_Post_Author'>
+                                        <AuthorRightSide author={post}  />
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </>
             )}
