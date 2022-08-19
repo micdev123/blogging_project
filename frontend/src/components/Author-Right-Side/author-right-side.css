@@ -83,7 +83,6 @@
 }
 
 
-
 .Author_RightSide_socials {
     margin-bottom: 30px;
 }
@@ -116,14 +115,29 @@
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Author_RightSide_Img {
+        height: 8rem;
+    }
+
+    .Author_RightSide_Img img {
+        width: 7rem;
+        height: 7rem;
+        border: 0.7px solid #f7f7f7;
+    }
+
+    .Author_RightSide_Component .Creator h1 {
+        width: 4.5rem;
+        height: 4.5rem;
+        font-size: 2rem;
+    }
     .Author_RightSide_Title h2 {
         font-weight: 550;
         color: #414141;
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     .Author_RightSide_Title p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .Author_RightSide_Desc {
@@ -138,7 +152,7 @@
 
     .Author_RightSide_btn {
         width: 80%;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         padding: 7px 0;
     }
 }
@@ -148,29 +162,92 @@
     .Author_RightSide_Component {
         width: 100%;
     }
+
+    .Author_RightSide_Img {
+        height: 7rem;
+    }
+
+    .Author_RightSide_Img img {
+        width: 6rem;
+        height: 6rem;
+        border: 0.9px solid #eae9e9;
+    }
+
+
+    .Author_RightSide_Component .Creator h1 {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+    }
     
     .Author_RightSide_Title h2 {
         font-weight: 550;
-        color: #414141;
-        font-size: 1.7rem;
+        color: #3c3c3c;
+        font-size: 1.5rem;
     }
 
     .Author_RightSide_Title p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .Author_RightSide_Desc {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .Author_RightSide_socials .icon {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
 
     }
 
     .Author_RightSide_btn {
         width: 70%;
-        font-size: 1.4rem;
+        font-size: 1.1rem;
+        padding: 7px 0;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .Author_RightSide_Img {
+        height: 6rem;
+    }
+
+    .Author_RightSide_Img img {
+        width: 5.5rem;
+        height: 5.2rem;
+        border: 0.9px solid #eae9e9;
+    }
+
+
+    .Author_RightSide_Component .Creator h1 {
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+    }
+    
+    .Author_RightSide_Title h2 {
+        font-weight: 550;
+        color: #414141;
+        font-size: 1.5rem;
+    }
+
+    .Author_RightSide_Title p {
+        font-size: 1.05rem;
+    }
+
+    .Author_RightSide_Desc {
+        font-size: 1.05rem;
+    }
+
+    .Author_RightSide_socials .icon {
+        margin: 0 10px;
+        font-size: 1.5rem;
+
+    }
+
+    .Author_RightSide_btn {
+        width: 80%;
+        font-size: 1.3rem;
         padding: 7px 0;
     }
 }

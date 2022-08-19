@@ -277,11 +277,11 @@
 
     .Profile_Component>h2 {
         border-bottom: 1.7px solid #d5d5d5;
-        font-size: 1.6rem;
+        font-size: 1.45rem;
     }
 
     .Profile_Component>h2 .icon {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .Profile_Form_Container {
@@ -299,33 +299,33 @@
 
     .Form_Group_ input {
         border-bottom: 1.7px solid #ebebeb;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
 
     .Form_Group_ label {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
     .Form_Group_ .Main_Label {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         margin-bottom: 10px;
     }
 
     .Form_Group_ textarea {
         border: none;
         outline: none;
-        font-size: 1.3rem;
-        border-bottom: 1.7px solid #eeeeee;
+        font-size: 1rem;
+        border-bottom: 1.5px solid #eeeeee;
     }
 
     .Profile_Photo {
         width: 100%;
-        height: 8rem;
+        height: 5rem;
     }
 
     .Profile_Photo img {
-        width: 8rem;
+        width: 5rem;
         height: 100%;
     }
 
@@ -346,15 +346,15 @@
 
     .username_url label {
         margin-right: 10px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .username_url input {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .Url_Small {
-        font-size: 1.15rem;
+        font-size: 1rem;
         font-weight: 550;
         display: flex;
         flex-direction: column;
@@ -369,12 +369,12 @@
     .Connection label {
         display: flex;
         align-items: center;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .Connection input {
         margin-bottom: 20px;
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .Connection .icon {
@@ -384,6 +384,127 @@
     .Update_Profile {
         width: 100%;
         padding: 8px 0;
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .Profile_Component {
+        background-color: white;
+        padding: 2rem 10px;
+    }
+
+    .Profile_Component>h2 {
+        border-bottom: 1.7px solid #d5d5d5;
+        font-size: 1.45rem;
+    }
+
+    .Profile_Component>h2 .icon {
+        font-size: 1.5rem;
+    }
+
+    .Profile_Form_Container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px 0;
+    }
+
+    .Form_Group_ {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .Form_Group_ input {
+        border-bottom: 1.7px solid #ebebeb;
+        font-size: 1rem;
+    }
+
+
+    .Form_Group_ label {
+        font-size: 1.2rem;
+    }
+
+    .Form_Group_ .Main_Label {
         font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .Form_Group_ textarea {
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        border-bottom: 1.5px solid #eeeeee;
+    }
+
+    .Profile_Photo {
+        width: 100%;
+        height: 5rem;
+    }
+
+    .Profile_Photo img {
+        width: 5rem;
+        height: 100%;
+    }
+
+    .Profile_Photo .icon {
+        cursor: pointer;
+    }
+
+    .short_bio {
+        width: 100%;
+        height: 10rem;
+        margin-bottom: 20px;
+    }
+
+
+    .Username__Url {
+        margin-bottom: 30px;
+    }
+
+    .username_url label {
+        margin-right: 10px;
+        font-size: 1.2rem;
+    }
+
+    .username_url input {
+        font-size: 1rem;
+    }
+
+    .Url_Small {
+        font-size: 1rem;
+        font-weight: 550;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Url_Large {
+        display: none;
+    }
+
+
+    .Connection label {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+
+    .Connection input {
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+
+    .Connection .icon {
+        margin-right: 5px;
+    }
+
+    .Update_Profile {
+        width: 100%;
+        padding: 8px 0;
+        font-size: 1.1rem;
     }
 }

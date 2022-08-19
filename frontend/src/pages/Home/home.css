@@ -55,11 +55,11 @@
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .Right_Sidebar_Icon {
         display: block;
-        padding: 12px;
+        padding: 11px;
     }
 
     .Right_Sidebar_Icon .icon {
-        font-size: 2.2rem;
+        font-size: 1.75rem;
     }
 
     .Right_Side_Component {
@@ -71,12 +71,30 @@
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .Right_Sidebar_Icon {
-        padding: 12px;
+        padding: 9px;
         display: block;
     }
 
     .Right_Sidebar_Icon .icon {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
+    }
+
+    .Right_Side_Component {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .Right_Sidebar_Icon {
+        padding: 8px;
+        display: block;
+    }
+
+    .Right_Sidebar_Icon .icon {
+        font-size: 1.2rem;
     }
 
     .Right_Side_Component {

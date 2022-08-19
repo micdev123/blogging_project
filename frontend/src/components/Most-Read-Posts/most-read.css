@@ -54,20 +54,20 @@
 
 .Trending_Post_Content p {
     font-size: 0.8rem;
-    color: #747474;
+    color: #4f4f4f;
 }
 
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .Most_Read_Component>h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         margin-bottom: 2rem;
         text-align: left;
     }
 
     .Trending_Post_Img {
-        width: 7rem;
+        width: 6.5rem;
         height: 5rem;
         /* background-color: red; */
     }
@@ -78,7 +78,7 @@
 
     .Trending_Post_Content h2 {
         font-weight: 500;
-        font-size: 1.28rem;
+        font-size: 1.2rem;
         color: #494949;
     }
 
@@ -93,13 +93,13 @@
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .Most_Read_Component>h2 {
-        font-size: 1.7rem;
+        font-size: 1.4rem;
         margin-bottom: 2rem;
         text-align: left;
     }
 
     .Trending_Post_Img {
-        width: 6.9rem;
+        width: 6rem;
         height: 5rem;
         /* background-color: red; */
     }
@@ -110,13 +110,49 @@
 
     .Trending_Post_Content h2 {
         font-weight: 500;
-        font-size: 1.25rem;
+        font-size: 1.05rem;
         color: #494949;
     }
 
     .Trending_Post_Content p {
+        font-size: 0.9rem;
+        color: #505050;
+        margin-top: 5px;
+    }
+
+    .Creator_Date {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape){
+    .Most_Read_Component>h2 {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+
+    .Trending_Post_Img {
+        width: 6rem;
+        height: 5rem;
+        /* background-color: red; */
+    }
+
+    .Trending_Post_Content {
+        margin-left: 40px;
+    }
+
+    .Trending_Post_Content h2 {
+        font-weight: 500;
         font-size: 1.05rem;
-        color: #747474;
+        color: #494949;
+    }
+
+    .Trending_Post_Content p {
+        font-size: 0.9rem;
+        color: #505050;
         margin-top: 5px;
     }
 

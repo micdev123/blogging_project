@@ -97,8 +97,8 @@
     }
 
     .My_Articles>h2 {
-        font-size: 1.6rem;
-        border-bottom: 1.7px solid #d5d5d5;
+        font-size: 1.4rem;
+        border-bottom: 1.5px solid #d5d5d5;
     }
 
     .Articles_Container {
@@ -112,6 +112,40 @@
     }
 
     .Author_Article_contents_Heading .Single_Post_Actions .icon {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .My_Articles_Container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 1rem 0;
+        min-height: 90vh;
+    }
+
+    .My_Articles {
+        padding: 1rem;
+    }
+
+    .My_Articles>h2 {
+        font-size: 1.4rem;
+        border-bottom: 1.5px solid #d5d5d5;
+    }
+
+    .Articles_Container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 0;
+    }
+
+    .Author_Article_contents_Heading .Single_Post_Actions {
+        display: block;
+    }
+
+    .Author_Article_contents_Heading .Single_Post_Actions .icon {
+        font-size: 1.35rem;
     }
 }

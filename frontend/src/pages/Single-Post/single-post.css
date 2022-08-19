@@ -71,7 +71,7 @@
 
 .Foot_Left p {
     font-size: 0.9rem;
-    color: #777777;
+    color: #525252;
 }
 
 .Single_Post_Actions .icon {
@@ -93,7 +93,7 @@
     font-size: 1.9rem;
     font-weight: 550;
     letter-spacing: 0.5px;
-    color: #4f4f4f;
+    color: #3c3c3c;
 }
 
 .Single_Post_Body {
@@ -103,7 +103,7 @@
 .Single_Post_Body p {
     font-size: 1.05rem;
     font-weight: normal;
-    color: #444444;
+    color: #3c3c3c;
     line-height: 30px;
     letter-spacing: 0.5px;
 }
@@ -368,34 +368,34 @@
     }
 
     .Single_Post .Single_Post_Left_Head .Creator {
-        width: 2.5rem;
+        width: 2.2rem;
         margin-right: 10px;
         /* background-color: red; */
     }
 
     .Single_Post .Single_Post_Left_Head .Creator h1 {
-        font-size: 2.4rem;
+        font-size: 1.9rem;
     }
 
     .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
-        font-size: 1.65rem;
+        font-size: 1.4rem;
     }
 
 
     .Foot_Left p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: #777777;
     }
 
     .Single_Post_Actions .icon {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
         cursor: pointer;
     }
 
 
     .Single_Post_Title {
         margin: 10px 0;
-        font-size: 2.1rem;
+        font-size: 1.9rem;
     }
 
     .Single_Post_Body {
@@ -403,22 +403,22 @@
     }
 
     .Single_Post_Body p {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
 
     .Comment_Head h2 {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
     }
 
     .Comment_Btn {
-        border: 1.7px solid #525252;
+        border: 1.5px solid #525252;
         padding: 6.5px 15px;
         font-size: 1.1rem;
     }
 
     .Comment_Btn .icon {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .Form_Heading {
@@ -426,8 +426,8 @@
     }
 
     .Form_Heading .Creator {
-        width: 2.7rem;
-        height: 2.7rem;
+        width: 2.2rem;
+        height: 2.2rem;
     }
 
     .Form_Heading .Creator h1 {
@@ -436,17 +436,17 @@
     }
 
     .Form_Heading_Img {
-        width: 3rem;
-        height: 3rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     .Form_Heading_Commenter {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .Comment_Form_Area {
         border: 1.7px solid #eceaea;
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
 
 
@@ -474,8 +474,8 @@
     }
 
     .Commenter_Img {
-        width: 3rem;
-        height: 3rem;
+        width: 2.7rem;
+        height: 2.7rem;
     }
 
     .Commenter_Img img {
@@ -560,7 +560,7 @@
     }
 
     .Small_Screen .Single_Post_Actions .icon {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
         cursor: pointer;
     }
 
@@ -569,35 +569,35 @@
     }
 
     .Small_Screen .Small_Screen_Date {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
         margin: 0;
     }
 
     .Single_Post .Single_Post_Left_Head .Creator {
-        width: 2.5rem;
-        margin-right: 10px;
+        width: 2.2rem;
+        margin-right: 5px;
         /* background-color: red; */
     }
 
     .Single_Post .Single_Post_Left_Head .Creator h1 {
-        font-size: 2.3rem;
+        font-size: 1.8rem;
     }
 
     .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 
 
     .Foot_Left p {
         width: 100%;
-        font-size: 1.15rem;
-        color: #777777;
+        font-size: 0.9rem;
+        color: #424141;
     }
 
     .Single_Post_Title {
         width: 100%;
         margin: 10px 0;
-        font-size: 1.9rem;
+        font-size: 1.6rem;
     }
 
     .Single_Post_Body {
@@ -606,7 +606,7 @@
     }
 
     .Single_Post_Body p {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .Comment_Head {
@@ -616,18 +616,18 @@
 
 
     .Comment_Head h2 {
-        font-size: 1.45rem;
+        font-size: 1.28rem;
         margin-bottom: 20px;
     }
 
     .Comment_Btn {
         border: 1.7px solid #525252;
-        padding: 6px 15px;
-        font-size: 1.15rem;
+        padding: 5px 15px;
+        font-size: 1.1rem;
     }
 
     .Comment_Btn .icon {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
     }
 
     .Form_Heading {
@@ -641,16 +641,196 @@
 
     .Form_Heading .Creator h1 {
         font-weight: 550;
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
 
     .Form_Heading_Img {
-        width: 3rem;
-        height: 3rem;
+        width: 2.9rem;
+        height: 2.1rem;
     }
 
     .Form_Heading_Commenter {
+        font-size: 1.1rem;
+    }
+
+    .Comment_Form_Area {
+        border: 1.7px solid #eceaea;
+        font-size: 1.1rem;
+    }
+
+
+    .Create_Comment {
+        padding: 5px 15px;
+        border-radius: 4px;
+        font-size: 1.1rem;
+    }
+
+
+    .Comments {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .Single_Comment {
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .Commenter_Head {
+        border-bottom: 1.7px solid #ebebeb;
+
+    }
+
+    .Commenter_Img {
+        width: 2.9rem;
+        height: 2.1rem;
+    }
+
+    .Commenter_Img img {
+        border: 1.8px solid #f0f0f0;
+    }
+
+    .Commenter_Info {
+        margin-left: 8px;
+    }
+
+
+    .Commenter_Info h2 {
         font-size: 1.15rem;
+    }
+
+    .Commenter_Info > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Commenter_Info p {
+        font-size: 0.9rem;
+        margin-top: 3px;
+    }
+
+
+    .Comment_Body p {
+        font-size: 1.15rem;
+    }
+
+    .RelatedPosts {
+        margin-bottom: 2rem;
+    }
+    
+
+    .Right_Sidebar_Icon {
+        padding: 7.5px;
+        display: block;
+    }
+
+    .Right_Sidebar_Icon .icon {
+        font-size: 1.2rem;
+    }
+
+    .Single_Post_Right_Small_Screen {
+        width: 100%;
+        display: block;
+    }
+
+    .Single_Post_Author {
+        width: 100%;
+        padding: 4rem 0;
+    }
+
+}
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .Single_Post_Container {
+        grid-template-columns: 1fr;
+        /* position: relative; */
+    }
+
+    .Single_Post_Right {
+        display: none;
+    }
+
+    .Single_Post {
+        padding: 1rem 10px;
+    }
+
+    .Single_Post .Single_Post_Left_Head .Creator {
+        width: 2rem;
+        margin-right: 10px;
+        /* background-color: red; */
+    }
+
+    .Single_Post .Single_Post_Left_Head .Creator h1 {
+        font-size: 1.8rem;
+    }
+
+    .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
+        font-size: 1.15rem;
+    }
+
+
+    .Foot_Left p {
+        font-size: 0.9rem;
+        color: #2f2f2f;
+    }
+
+    .Single_Post_Actions .icon {
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+
+    .Single_Post_Title {
+        margin: 10px 0;
+        font-size: 1.6rem;
+    }
+
+    .Single_Post_Body {
+        margin-top: 20px;
+    }
+
+    .Single_Post_Body p {
+        font-size: 1.05rem;
+    }
+
+
+    .Comment_Head h2 {
+        font-size: 1.25rem;
+    }
+
+    .Comment_Btn {
+        border: 1.7px solid #525252;
+        padding: 6.5px 15px;
+        font-size: 1.1rem;
+    }
+
+    .Comment_Btn .icon {
+        font-size: 1.2rem;
+    }
+
+    .Form_Heading {
+        border-bottom: 1.7px solid #e9e9e9;
+    }
+
+    .Form_Heading .Creator {
+        width: 2.7rem;
+        height: 2.7rem;
+    }
+
+    .Form_Heading .Creator h1 {
+        font-weight: 550;
+        font-size: 1.2rem;
+    }
+
+    .Form_Heading_Img {
+        width: 2.7rem;
+        height: 2.7rem;
+    }
+
+    .Form_Heading_Commenter {
+        font-size: 1.1rem;
     }
 
     .Comment_Form_Area {
@@ -663,13 +843,13 @@
     .Create_Comment {
         padding: 6px 15px;
         border-radius: 4px;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
 
     .Comments {
         width: 100%;
-        margin: 20px 0;
+        margin-top: 20px;
     }
 
     .Single_Comment {
@@ -691,49 +871,36 @@
         border: 1.8px solid #f0f0f0;
     }
 
-    .Commenter_Info {
-        margin-left: 8px;
-    }
-
 
     .Commenter_Info h2 {
-        font-size: 1.2rem;
-    }
-
-    .Commenter_Info > div {
-        display: flex;
-        flex-direction: column;
+        font-size: 1.1rem;
     }
 
     .Commenter_Info p {
-        font-size: 1rem;
-        margin-top: 3px;
+        font-size: 0.9rem;
     }
 
 
     .Comment_Body p {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .RelatedPosts {
         margin-bottom: 2rem;
     }
-    
+
     .Right_Sidebar_Icon {
         display: block;
         /* z-index: 1000; */
     }
 
     .Single_Post_Right_Small_Screen {
-        width: 100%;
         display: block;
     }
 
     .Single_Post_Author {
-        width: 100%;
         padding: 4rem 0;
     }
-
 
 
 }

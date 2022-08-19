@@ -150,7 +150,7 @@ export const Write = () => {
                         )}
                     </form>
                     <p onClick={() => setFormSideBar(!openFormSideBar)} className='Mobile_Publish'>
-                            Publish
+                        Publish
                     </p>
                 </div>
             </div>

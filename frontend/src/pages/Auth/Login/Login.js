@@ -4,7 +4,9 @@ import { Helmet } from 'react-helmet-async';
 import { publicRequest } from '../../../requestController';
 import { Store } from '../../../Store';
 import { getError } from '../../../utils';
-
+import { Icon } from 'react-icons-kit'
+import {eye} from 'react-icons-kit/feather/eye'
+import { eyeOff } from 'react-icons-kit/feather/eyeOff'
 
 import '../auth.css'
 
@@ -14,6 +16,19 @@ export const Login = () => {
     const { search } = useLocation();
     const redirectInUrl = new URLSearchParams(search).get('redirect');
     const redirect = redirectInUrl ? redirectInUrl : '/';
+
+    const [type, setType]=useState('password');
+    const [icon, setIcon] = useState(eyeOff)
+    const handleToggle=()=>{    
+        if(type==='password'){
+            setIcon(eye);      
+            setType('text');
+        }
+        else{
+            setIcon(eyeOff);     
+            setType('password');
+        }
+    }
 
     const [msg, setMsg] = useState('');
     
@@ -56,7 +71,10 @@ export const Login = () => {
                         {msg && (<p className='msg'>{msg}</p>)}
                         <h2 className='Dark_Mode'>Login To Your Account</h2>
                         <input type='email' name='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} className="Dark_Mode_Background" />
-                        <input type='password' name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} className="Dark_Mode_Background" />
+                        <div className='Password'>
+                            <input type={type} name='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} className="Dark_Mode_Background" />
+                            <span onClick={handleToggle} className='ShowPassword'><Icon icon={icon} className='icon' /></span>
+                        </div>
                         <button type='submit' className='Auth_Btn'>Login</button>
                         
                         <button className='Info'>

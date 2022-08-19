@@ -115,71 +115,74 @@ export const EditSinglePost = () => {
     return (
         loading ? (<div>Loading..</div>) : error ? (<p className="danger">{error}</p>) : (
             <div className={!openFormSideBar ? 'EditSinglePost' : 'Set_Fixed Dark_Mode_Background'}>
-                    <div className={openFormSideBar && 'Overlay_Form_Post'}></div>
-                    <Helmet>
-                        <title>Updating: {post.title} </title>   
-                    </Helmet>
-                    <div className='Main_Container'>
-                        <div className='Write_Container Dark_Mode_Background'>
-                            {
-                                file ? (
-                                    <img className="Write_Img" src={URL.createObjectURL(file)} alt="Post_Img" />
-                                ) : (
-                                    <img className="Write_Img" src={post.photo && (Images_Folder + post.photo)} alt="Post_Img" />
-                                )
-                            }
-                            
-                            <form className='Write_Form_Container' onSubmit={submitHandler}>
-                                <div className='Form_Group'>
-                                    <label htmlFor='File_Input'>
-                                        <BiMessageSquareAdd className='icon' />
-                                    </label>
-                                    <input type='file' id='File_Input' style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
-                                    <input type='text' placeholder='Title' className='Text_Input Dark_Mode_Background' autoFocus={true} name='title' value = {Inputs.title} onChange={handleChange} required />
-                                </div>
-                                <div className='Form_Group'>
-                                    <textarea placeholder='Tell your story...' type='text' className='Text_Input Textarea Dark_Mode_Background' name='desc' value = {Inputs.desc} onChange={handleChange} required></textarea>
-                                </div>
-                                <p onClick={(e) => e.target(setFormSideBar(!openFormSideBar))} className='Publish'>
-                                    Publish
-                                </p>
-                                {openFormSideBar && (
-                                    <div className='Form_SideBar Dark_Mode_Background'>
-                                        <AiOutlineCloseCircle className='CloseBtn' onClick={closeFormSideBar}/>
-                                        <div className='SideBar_Form_Group'>
-                                            <label htmlFor='keywords' className='Dark_Mode'>SEO Title | Slug</label>
-                                            <input type='text' placeholder='key-to-blogging' className='Input Dark_Mode_P' name='slug' value={Inputs.slug} onChange={handleChange} required />
-                                            <p>Please separate each word with hyphen(-) with no spacing</p>
-                                        </div>
-                                        <div className='SideBar_Form_Group'>
-                                            <label htmlFor='keywords' className='Dark_Mode'>Post Keywords | Tags</label>
-                                            <input type='text' placeholder='technology,javaScript,etc...' className='Input Dark_Mode_P' name='tags' value={Inputs.tags} onChange={handleChange} required />
-                                            <p>Please separate each word with a comma(,) with no spacing</p>
+                <div className={openFormSideBar && 'Overlay_Form_Post'}></div>
+                <Helmet>
+                    <title>Updating: {post.title} </title>   
+                </Helmet>
+                <div className='Main_Container'>
+                    <div className='Write_Container Dark_Mode_Background'>
+                        {
+                            file ? (
+                                <img className="Write_Img" src={URL.createObjectURL(file)} alt="Post_Img" />
+                            ) : (
+                                <img className="Write_Img" src={post.photo && (Images_Folder + post.photo)} alt="Post_Img" />
+                            )
+                        }
+                        
+                        <form className='Write_Form_Container' onSubmit={submitHandler}>
+                            <div className='Form_Group'>
+                                <label htmlFor='File_Input'>
+                                    <BiMessageSquareAdd className='icon' />
+                                </label>
+                                <input type='file' id='File_Input' style={{ display: "none" }} onChange={(e) => setFile(e.target.files[0])} />
+                                <input type='text' placeholder='Title' className='Text_Input Dark_Mode_Background' autoFocus={true} name='title' value = {Inputs.title} onChange={handleChange} required />
+                            </div>
+                            <div className='Form_Group'>
+                                <textarea placeholder='Tell your story...' type='text' className='Text_Input Textarea Dark_Mode_Background' name='desc' value = {Inputs.desc} onChange={handleChange} required></textarea>
+                            </div>
+                            <p onClick={(e) => e.target(setFormSideBar(!openFormSideBar))} className='Publish'>
+                                Publish
+                            </p>
+                            {openFormSideBar && (
+                                <div className='Form_SideBar Dark_Mode_Background'>
+                                    <AiOutlineCloseCircle className='CloseBtn' onClick={closeFormSideBar}/>
+                                    <div className='SideBar_Form_Group'>
+                                        <label htmlFor='keywords' className='Dark_Mode'>SEO Title | Slug</label>
+                                        <input type='text' placeholder='key-to-blogging' className='Input Dark_Mode_P' name='slug' value={Inputs.slug} onChange={handleChange} required />
+                                        <p>Please separate each word with hyphen(-) with no spacing</p>
                                     </div>
                                     <div className='SideBar_Form_Group'>
-                                            <label htmlFor='duration' className='Dark_Mode'>Duration</label>
-                                            <input type='number' placeholder='2 min, 35 min, etc...' className='Input Dark_Mode_P' name='duration' value={Inputs.duration} onChange={handleChange} required />
-                                            <p>Please only the number</p>
-                                        </div>
-                                        <div className='SideBar_Form_Group'>
-                                            <label htmlFor='keywords' className='Dark_Mode'>Publish post on</label>
-                                            <input type='text' name='creatorLink' value={Inputs.creatorLink} className='Input Dark_Mode_P' onChange={handleChange} required />
-                                        </div>
-                                        {loadingUpdate ? (
-                                            <button type='submit' className='Now_Publish'>
-                                                Processing...
-                                            </button>
-                                        ): (
-                                            <button type='submit' className='Now_Publish'>
-                                                <MdPublish className='icon'/>
-                                                Update
-                                            </button>    
-                                        )}
+                                        <label htmlFor='keywords' className='Dark_Mode'>Post Keywords | Tags</label>
+                                        <input type='text' placeholder='technology,javaScript,etc...' className='Input Dark_Mode_P' name='tags' value={Inputs.tags} onChange={handleChange} required />
+                                        <p>Please separate each word with a comma(,) with no spacing</p>
+                                </div>
+                                <div className='SideBar_Form_Group'>
+                                        <label htmlFor='duration' className='Dark_Mode'>Duration</label>
+                                        <input type='number' placeholder='2 min, 35 min, etc...' className='Input Dark_Mode_P' name='duration' value={Inputs.duration} onChange={handleChange} required />
+                                        <p>Please only the number</p>
                                     </div>
-                                )}
-                            </form>
-                        </div>
+                                    <div className='SideBar_Form_Group'>
+                                        <label htmlFor='keywords' className='Dark_Mode'>Publish post on</label>
+                                        <input type='text' name='creatorLink' value={Inputs.creatorLink} className='Input Dark_Mode_P' onChange={handleChange} required />
+                                    </div>
+                                    {loadingUpdate ? (
+                                        <button type='submit' className='Now_Publish'>
+                                            Processing...
+                                        </button>
+                                    ): (
+                                        <button type='submit' className='Now_Publish'>
+                                            <MdPublish className='icon'/>
+                                            Update
+                                        </button>    
+                                    )}
+                                </div>
+                            )}
+                        </form>
+                        <p onClick={() => setFormSideBar(!openFormSideBar)} className='Mobile_Publish'>
+                        Publish
+                    </p>
                     </div>
+                </div>
             </div>
         )
     )

@@ -92,13 +92,13 @@
     }
 
     .Setting_SideBar_Component>h2 {
-        font-size: 1.6rem;
-        border-bottom: 1.7px solid #d5d5d5;
+        font-size: 1.4rem;
+        border-bottom: 1.2px solid #d5d5d5;
     }
 
     .Setting_SideBar_Component>h2 .icon {
         margin-right: 4px;
-        font-size: 1.9rem;
+        font-size: 1.5rem;
     }
 
     .Settings_Links {
@@ -111,12 +111,51 @@
     .Settings_Links .Link {
         padding: 6px 15px;
         /* background-color: red; */
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         margin-bottom: 15px;
     }
 
     .Settings_Links .Link .icon {
         margin-right: 5px;
-        font-size: 1.7rem;
+        font-size: 1.3rem;
+    }
+}
+
+
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .Setting_SideBar_Component {
+        background-color: #ffffff;
+        padding: 2rem 5px;
+    }
+
+    .Setting_SideBar_Component>h2 {
+        font-size: 1.4rem;
+        border-bottom: 1.2px solid #d5d5d5;
+    }
+
+    .Setting_SideBar_Component>h2 .icon {
+        margin-right: 4px;
+        font-size: 1.5rem;
+    }
+
+    .Settings_Links {
+        display: flex;
+        /* flex-wrap: wrap; */
+        align-items: center;
+    }
+
+
+    .Settings_Links .Link {
+        padding: 6px 15px;
+        /* background-color: red; */
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .Settings_Links .Link .icon {
+        margin-right: 5px;
+        font-size: 1.3rem;
     }
 }

@@ -1,5 +1,5 @@
 .Author__Container {
-    margin: 4rem 0 2rem 0;
+    margin: 10px 0 2rem 0;
 }
 
 .Author_Profile {
@@ -11,7 +11,7 @@
 .Author_Profile_Head {
     display: flex;
     align-items: center;
-    border-bottom: 1.7px solid #f4f3f3;
+    border-bottom: 1px solid #f4f3f3;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
@@ -66,7 +66,7 @@
 
 .Author_Head_Content p {
     font-size: 0.9rem;
-    color: #8b8b8b;
+    color: #595757;
     font-weight: normal;
     margin-top: 2px;
 }
@@ -82,13 +82,14 @@
 
 .Author_Profile_Bio p {
     font-size: 1rem;
+    color: #595757;
 }
 
 .Author_Date_Joined {
     display: flex;
     align-items: center;
     font-size: 1rem;
-    color: #8b8b8b;
+    color: #696969;
     margin-bottom: 10px;
 }
 
@@ -105,7 +106,7 @@
     display: flex;
     align-items: center;
     font-size: 1rem;
-    color: #8b8b8b;
+    color: #696969;
 }
 
 .Author_Location .icon, .Author_Job .icon {
@@ -132,7 +133,7 @@
     background-color: #FCFCFC;
     padding: 5px;
     font-size: 1rem;
-    color: #8b8b8b;
+    color: #696969;
     border-radius: 5px;
     text-decoration: none;
 }
@@ -169,7 +170,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1.7px solid #f4f3f3;
+    border-bottom: 1px solid #f4f3f3;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
@@ -185,7 +186,7 @@
 
 
 .Author_Works_Head p {
-    color: #777676;
+    color: #5c5b5b;
 }
 
 .Author_Works_Head span {
@@ -338,18 +339,18 @@
     }
 
     .Author_Profile_Head .Creator {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.1rem;
+        height: 3.1rem;
 
     }
 
     .Author_Profile_Head .Creator h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .Author__Img {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.3rem;
+        height: 3.3rem;
         margin-right: 10px;
     }
 
@@ -359,12 +360,12 @@
     }
 
     .Author_Name {
-        font-size: 1.4rem;
-        color: #555555;
+        font-size: 1.35rem;
+        color: #424242;
     }
 
     .Author_Head_Content p {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-top: 2px;
     }
 
@@ -374,11 +375,11 @@
     }
 
     .Author_Profile_Bio p {
-        font-size: 1.3rem;
+        font-size: 1.12rem;
     }
 
     .Author_Date_Joined {
-        font-size: 1.3rem;
+        font-size: 1.12rem;
         margin-bottom: 15px;
     }
 
@@ -388,7 +389,7 @@
 
     .Author_Location,
     .Author_Job {
-        font-size: 1.3rem;
+        font-size: 1.12rem;
         margin-bottom: 15px;
     }
 
@@ -408,11 +409,11 @@
 
     .Author_Profile_Keywords .Keyword {
         width: 100%;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .Author_Profile_Socials {
-        font-size: 1.7rem;
+        font-size: 1.45rem;
     }
 
     .Author_Works {
@@ -420,7 +421,7 @@
     }
 
     .Author_Works_Head h2 {
-        font-size: 1.5rem;
+        font-size: 1.33rem;
     }
 
 
@@ -430,9 +431,9 @@
 
 
     .Author_Works h2 .icon {
-        margin-right: 8px;
+        margin-right: 4px;
         /* background-color: red; */
-        font-size: 1.65rem;
+        font-size: 1.4rem;
     }
 
     .Author_Work_Container {
@@ -446,5 +447,111 @@
     }
 
     
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+
+    .Author_Profile_Head .Creator {
+        width: 3.1rem;
+        height: 3.1rem;
+
+    }
+
+    .Author_Profile_Head .Creator h1 {
+        font-size: 1.8rem;
+    }
+
+    .Author__Img {
+        width: 3.4rem;
+        height: 3.4rem;
+        margin-right: 10px;
+    }
+
+    .Author__Img img {
+        border: 0.7px solid #e0dfdf;
+    }
+
+    .Author_Name {
+        font-weight: 550;
+        font-size: 1.4rem;
+        color: #555555;
+    }
+
+    .Author_Head_Content p {
+        font-size: 1rem;
+        margin-top: 4px;
+    }
+
+
+    .Author_Profile_Bio {
+        margin: 10px 0;
+    }
+
+    .Author_Profile_Bio p {
+        font-size: 1.15rem;
+    }
+
+    .Author_Date_Joined {
+        font-size: 1.15rem;
+    }
+
+    .Author_Date_Joined .icon {
+        font-size: 1.25rem;
+    }
+
+    .Author_Location,
+    .Author_Job {
+        font-size: 1.15rem;
+    }
+
+    .Author_Location .icon,
+    .Author_Job .icon {
+        font-size: 1.25rem;
+    }
+
+    .Author_Profile_Keywords .Keyword {
+        font-size: 1.15rem;
+    }
+
+    .Author_Profile_Socials {
+        font-size: 1.4rem;
+    }
+
+
+
+    .Author_Works_Head h2 {
+        font-size: 1.35rem;
+    }
+
+
+    .Author_Works_Head p {
+        color: #777676;
+        font-size: 1.1rem;
+    }
+
+    .Author_Works_Head span {
+        font-weight: 550;
+        margin-right: 5px;
+        font-size: 1.2rem;
+    }
+
+
+    .Author_Works h2 .icon {
+        margin-right: 3px;
+        /* background-color: red; */
+        font-size: 1.3rem;
+    }
+
+    .Author_Work_Container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .Author_Work {
+        border: 1.7px solid #fafafa;
+        padding: 5px;
+    }
 }
 

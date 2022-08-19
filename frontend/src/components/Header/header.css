@@ -79,16 +79,17 @@
     }
 
     .Header_contents h2 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         line-height: 2.7rem;
     }
 
     .Header_contents p {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
+        margin-bottom: 30px;
     }
 
     .Header_btn {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
         padding: 9px 15px;
     }
 
@@ -112,7 +113,7 @@
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .Header_Component {
-        height: 110vh;
+        height: 100vh;
         justify-content: center;
         align-items: center;
     }
@@ -124,22 +125,72 @@
     }
 
     .Header_contents h2 {
-        font-size: 2rem;
-        line-height: 2.5rem;
+        font-size: 1.8rem;
+        line-height: 2rem;
     }
 
     .Header_contents p {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
+        margin-top: 13px;
+        margin-bottom: 30px;
     }
 
     .Header_btn {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 8px 15px;
     }
 
     .Header_Image {
         width: 100%;
         height: 21rem;
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Header_Image img {
+        width: 100%;
+        height: 80%;
+        object-fit: contain;
+    }
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .Header_Component {
+        height: 100vh;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .Header_Container {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .Header_contents h2 {
+        font-size: 1.75rem;
+        line-height: 1.9rem;
+    }
+
+    .Header_contents p {
+        font-size: 1.15rem;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .Header_btn {
+        font-size: 1.1rem;
+        padding: 9px 15px;
+    }
+
+    .Header_Image {
+        width: 100%;
+        height: 20rem;
         /* background-color: red; */
         display: flex;
         justify-content: center;

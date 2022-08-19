@@ -256,7 +256,7 @@
 
 
   .logo {
-    font-size: 2.1rem;
+    font-size: 1.85rem;
   }
 
   .navLinks .navLink {
@@ -273,7 +273,7 @@
   }
 
   .Write p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .Write .icon {
@@ -294,7 +294,7 @@
   }
 
   .UserLogo h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
 
@@ -330,22 +330,21 @@
 }
 
 
-
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
   .Nav_Container {
-    padding: 15px 0;
+    padding: 10px 0;
     position: relative;
   }
 
 
   .logo {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .Menu_Btn, .Close_Btn {
     display: block;
-    font-size: 2.2rem;
+    font-size: 1.7rem;
     cursor: pointer;
     /* z-index: 10000; */
   }
@@ -419,7 +418,7 @@
   .state {
     width: 90%;
     display: block;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     text-decoration: none;
     background-color: #f1fafb;
     border-radius: 5px;
@@ -428,7 +427,7 @@
   }
 
   .state p:last-child {
-    font-size: 1.6rem;
+    font-size: 1.18rem;
   }
 
   .Write {
@@ -437,11 +436,12 @@
   }
 
   .Write p {
-    font-size: 1.6rem;
+    font-size: 1.1rem;
   }
 
   .Write .icon {
     margin-right: 10px;
+    font-size: 1.1rem;
   }
 
   .User_Menu__ {
@@ -453,7 +453,7 @@
 
   .User_Menu__ .Link {
     width: 90%;
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     text-decoration: none;
     color: #444444;
     margin-top: 20px;
@@ -468,9 +468,146 @@
     margin-right: 10px;
   }
 
+}
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+  .Nav_Container {
+    padding: 10px 0;
+    position: relative;
+  }
 
 
+  .logo {
+    font-size: 1.5rem;
+  }
 
+  .Menu_Btn,
+  .Close_Btn {
+    display: block;
+    font-size: 1.7rem;
+    cursor: pointer;
+    /* z-index: 10000; */
+  }
+
+  .Mobile_NavLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background-color: white;
+    z-index: 1000;
+    padding: 2rem 1rem;
+    transition: all .3s ease;
+  }
+
+  .Mobile_NavLinks .Mobile_NavLinks_Head {
+    width: 95%;
+    margin: 0 auto 20px auto;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    /* right: 30px; */
+    /* margin-bottom: 20px; */
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .Mobile_NavLink_User {
+    width: 90%;
+    margin: 2rem 0;
+  }
+
+  .UserPhoto {
+    width: 2rem;
+    height: 2rem;
+    /* background-color: red; */
+  }
+
+
+  .UserLogo_ {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .UserLogo_ h1 {
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    /* padding: 20px; */
+    background-color: #070754;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 550;
+
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .state {
+    width: 100%;
+    display: block;
+    font-size: 0.8rem;
+    text-decoration: none;
+    background-color: #f1fafb;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: 550;
+  }
+
+  .state p:last-child {
+    font-size: 1.18rem;
+  }
+
+  .Write {
+    width: 90%;
+    padding: 7px 15px;
+  }
+
+  .Write p {
+    font-size: 1.1rem;
+  }
+
+  .Write .icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+  }
+
+  .User_Menu__ {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .User_Menu__ .Link {
+    width: 90%;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #444444;
+    margin-top: 20px;
+    background-color: #f1fafb;
+    border-radius: 5px;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .User_Menu__ .Link .icon {
+    margin-right: 10px;
+  }
 }
 
 
