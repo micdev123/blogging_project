@@ -89,7 +89,7 @@
 /* Mobile Devices :: Media Queries */
 @media screen and (max-width : 968px) and (orientation: landscape) {
     .Right_Sidebar_Icon {
-        padding: 8px;
+        padding: 9px;
         display: block;
     }
 

@@ -260,7 +260,7 @@
     .Small_Screen_Date {
         display: block;
         margin: 10px 0;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         font-weight: 550;
         color: #747474;
     }
@@ -284,7 +284,7 @@
     }
 
     .Post_Head_Right .Link h2 {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
 
     .Post_Head_Right_Foot_ p {
@@ -301,7 +301,7 @@
     }
 
     .Post_Contents_Body_Title {
-        font-size: 1.45rem;
+        font-size: 1.4rem;
     }
 
     .Post_Contents_Body_Desc {
@@ -318,7 +318,7 @@
     .Post_Contents_Body_Tags .Tag {
         margin-right: 7px;
         padding: 5px 8px;
-        font-size: 1.05rem;
+        font-size: 0.9rem;
     }
 
     .Post_Contents_Foot {
@@ -328,22 +328,22 @@
     .Post_Contents_Foot p {
         font-weight: normal;
         color: #4f4f4f;
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .Post_Contents_Foot .line {
         display: block;
         width: 1.5px;
-        height: 1.4rem;
+        height: 1.3rem;
         margin: 0 8px;
     }
 
     .Post_Contents_Foot .info {
-        font-size: 1.08rem;
+        font-size: 1rem;
     }
 
     .Post_Contents_Foot .info .icon {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 }
 

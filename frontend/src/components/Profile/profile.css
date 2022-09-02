@@ -308,7 +308,7 @@
     }
 
     .Form_Group_ .Main_Label {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         margin-bottom: 10px;
     }
 
@@ -369,7 +369,7 @@
     .Connection label {
         display: flex;
         align-items: center;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .Connection input {

@@ -569,22 +569,23 @@
     }
 
     .Small_Screen .Small_Screen_Date {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         margin: 0;
     }
 
     .Single_Post .Single_Post_Left_Head .Creator {
         width: 2.2rem;
-        margin-right: 5px;
+        margin-right: 8px;
         /* background-color: red; */
     }
 
     .Single_Post .Single_Post_Left_Head .Creator h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 5px;
     }
 
 
@@ -616,14 +617,14 @@
 
 
     .Comment_Head h2 {
-        font-size: 1.28rem;
+        font-size: 1.15rem;
         margin-bottom: 20px;
     }
 
     .Comment_Btn {
         border: 1.7px solid #525252;
         padding: 5px 15px;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .Comment_Btn .icon {
@@ -635,18 +636,18 @@
     }
 
     .Form_Heading .Creator {
-        width: 2.7rem;
-        height: 2.7rem;
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     .Form_Heading .Creator h1 {
         font-weight: 550;
-        font-size: 1.3rem;
+        font-size: 1.25rem;
     }
 
     .Form_Heading_Img {
-        width: 2.9rem;
-        height: 2.1rem;
+        width: 3.5rem;
+        height: 2.8rem;
     }
 
     .Form_Heading_Commenter {
@@ -696,7 +697,7 @@
 
 
     .Commenter_Info h2 {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .Commenter_Info > div {
@@ -711,7 +712,7 @@
 
 
     .Comment_Body p {
-        font-size: 1.15rem;
+        font-size: 1rem;
     }
 
     .RelatedPosts {

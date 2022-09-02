@@ -424,6 +424,7 @@
     border-radius: 5px;
     padding: 8px 15px;
     font-weight: 550;
+    color: #2c2c2c;
   }
 
   .state p:last-child {

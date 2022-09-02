@@ -92,8 +92,13 @@
 
 /* Mobile Devices :: Media Queries */
 @media screen and (min-width : 320px) and (max-width : 480px) {
+    .Most_Read_Component {
+        width: 100%;
+        padding: 2rem 10px;
+    }
+
     .Most_Read_Component>h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         margin-bottom: 2rem;
         text-align: left;
     }
@@ -123,6 +128,7 @@
     .Creator_Date {
         display: flex;
         flex-direction: column;
+        margin-top: 5px;
     }
 }
 

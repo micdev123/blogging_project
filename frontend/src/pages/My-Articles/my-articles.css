@@ -97,7 +97,7 @@
     }
 
     .My_Articles>h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         border-bottom: 1.5px solid #d5d5d5;
     }
 
@@ -112,7 +112,7 @@
     }
 
     .Author_Article_contents_Heading .Single_Post_Actions .icon {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -131,7 +131,7 @@
     }
 
     .My_Articles>h2 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         border-bottom: 1.5px solid #d5d5d5;
     }
 
@@ -146,6 +146,6 @@
     }
 
     .Author_Article_contents_Heading .Single_Post_Actions .icon {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
 }
