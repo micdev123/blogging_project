@@ -36,7 +36,7 @@ export const EditSinglePost = () => {
     const Images_Folder = "http://localhost:5000/images/";
     const navigate = useNavigate();
 
-    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { state } = useContext(Store);
     const { userInfo } = state;
 
     const location = useLocation();
