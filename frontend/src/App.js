@@ -1,6 +1,6 @@
 import React, { useContext, useState, createContext } from 'react'
 import './App.css';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { MdArrowDropDown, MdArticle } from 'react-icons/md'
 import { BsFillPenFill } from 'react-icons/bs'
 import { AiFillSetting } from 'react-icons/ai';
@@ -27,7 +27,6 @@ import { MyArticles } from './pages/My-Articles/MyArticles'
 export const ThemeContext = createContext(null);
 
 function App() {
-  const navigate = useNavigate();
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
@@ -43,8 +42,8 @@ function App() {
   const signOutHandler = () => {
       ctxDispatch({ type: 'USER_SIGNOUT' });
       localStorage.removeItem('userInfo');
-      navigate(`/login`);
-      setMenu(false)
+      window.location.href = '/login';
+      // setMenu(false)
   };
 
   return (
