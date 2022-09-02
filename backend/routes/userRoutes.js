@@ -1,6 +1,5 @@
 const express = require('express');
 const { updateUser, deleteUser, getUser } = require('../controllers/userController');
-const { authorizedToken } = require('../middleware/authMiddleware');
 
 
 const router = express.Router();

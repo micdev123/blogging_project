@@ -140,7 +140,7 @@ export const EditSinglePost = () => {
                             <div className='Form_Group'>
                                 <textarea placeholder='Tell your story...' type='text' className='Text_Input Textarea Dark_Mode_Background' name='desc' value = {Inputs.desc} onChange={handleChange} required></textarea>
                             </div>
-                            <p onClick={(e) => e.target(setFormSideBar(!openFormSideBar))} className='Publish'>
+                            <p onClick={() => setFormSideBar(!openFormSideBar)} className='Publish'>
                                 Publish
                             </p>
                             {openFormSideBar && (
