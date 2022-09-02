@@ -349,8 +349,8 @@
     }
 
     .Author__Img {
-        width: 3.3rem;
-        height: 3.3rem;
+        width: 3.4rem;
+        height: 3.4rem;
         margin-right: 10px;
     }
 
@@ -365,7 +365,7 @@
     }
 
     .Author_Head_Content p {
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin-top: 2px;
     }
 
@@ -375,33 +375,34 @@
     }
 
     .Author_Profile_Bio p {
-        font-size: 1.05rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
 
     .Author_Date_Joined {
-        font-size: 1.05rem;
+        font-size: 1rem;
         margin-bottom: 15px;
     }
 
     .Author_Date_Joined .icon {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
     }
 
     .Author_Location,
     .Author_Job {
-        font-size: 1.05rem;
+        font-size: 1rem;
         margin-bottom: 15px;
     }
 
     .Author_Location .icon,
     .Author_Job .icon {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
     }
 
 
     .Author_Profile_Keywords {
         width: 100%;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px 10px;
         margin-top: 15px;
     }
@@ -413,7 +414,7 @@
     }
 
     .Author_Profile_Socials {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
     }
 
     .Author_Works {
@@ -433,7 +434,7 @@
     .Author_Works h2 .icon {
         margin-right: 4px;
         /* background-color: red; */
-        font-size: 1.25rem;
+        font-size: 1.27rem;
     }
 
     .Author_Work_Container {

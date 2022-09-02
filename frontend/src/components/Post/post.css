@@ -373,12 +373,13 @@
 
 
     .Post_Head_Right .Link h2 {
-        font-size: 1.15rem;
+        font-size: 1.19rem;
     }
 
 
     .Post_Head_Right_Foot_ p {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        margin-top: 3px;
     }
 
     .line {

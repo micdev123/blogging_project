@@ -569,7 +569,7 @@
     }
 
     .Small_Screen .Small_Screen_Date {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         margin: 0;
     }
 
@@ -584,8 +584,8 @@
     }
 
     .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
-        font-size: 1rem;
-        margin-bottom: 5px;
+        font-size: 1.19rem;
+        margin-bottom: 3px;
     }
 
 
@@ -598,7 +598,7 @@
     .Single_Post_Title {
         width: 100%;
         margin: 10px 0;
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
 
     .Single_Post_Body {
@@ -683,8 +683,8 @@
     }
 
     .Commenter_Img {
-        width: 2.9rem;
-        height: 2.1rem;
+        width: 3.5rem;
+        height: 2.8rem;
     }
 
     .Commenter_Img img {
@@ -692,7 +692,7 @@
     }
 
     .Commenter_Info {
-        margin-left: 8px;
+        margin-left: 5px;
     }
 
 

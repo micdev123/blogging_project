@@ -23,7 +23,7 @@
     font-weight: 500;
     color: #383737;
     margin: 5px 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .Author_Article_Contents_Head {
@@ -35,9 +35,9 @@
 
 
 .Article_Head_Left {
-    width: 2.5rem;
-    height: 2.5rem;
-    /* margin-right: 10px; */
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-right: 10px;
 }
 
 .Article_Head_Left img {
@@ -63,8 +63,9 @@
 
 .Article_Head_Right h2 {
     font-weight: 550;
-    font-size: 1rem;
+    font-size: 1.19rem;
     color: #383737;
+    margin-bottom: 3px;
 }
 
 
@@ -83,15 +84,17 @@
 }
 
 .Article_Contents_Body_Title {
+    width: 100%;
     font-weight: 550;
     color: #4f4f4f;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
 }
 
 .Article_Contents_Body_Desc {
     color: #6e6d6d;
     font-weight: normal;
     font-size: 0.9rem;
+    line-height: 1.5rem;
     margin: 5px 0;
 }
 
