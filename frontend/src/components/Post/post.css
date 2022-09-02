@@ -173,6 +173,14 @@
 
 /* Tablet Devices :: Media Queries */
 @media screen and (min-width : 768px) and (max-width : 1024px) {
+    .Post_Component {
+        width: 100%;
+    }
+
+    .Post_Contents {
+        width: 100%;
+    }
+
     .Post_Head_Left {
         width: 4rem;
         height: 3.5rem;
@@ -260,7 +268,7 @@
     .Small_Screen_Date {
         display: block;
         margin: 10px 0;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         font-weight: 550;
         color: #747474;
     }
@@ -275,6 +283,10 @@
         /* background-color: red; */
     }
 
+    .Post_Head_Left img {
+        border: 0.7px solid #e9e9e9;
+    }
+
     .Creator h1 {
         font-size: 1.8rem;
     }
@@ -284,11 +296,12 @@
     }
 
     .Post_Head_Right .Link h2 {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
     }
 
     .Post_Head_Right_Foot_ p {
         font-size: 0.9rem;
+        margin-top: 4px;
     }
 
     .line, .Date {
@@ -305,8 +318,9 @@
     }
 
     .Post_Contents_Body_Desc {
-        font-size: 1rem;
-        /* margin: 5px 0; */
+        font-size: 0.98rem;
+        margin: 5px 0;
+        line-height: 1.5rem;
     }
 
     .Post_Contents_Body_Tags {

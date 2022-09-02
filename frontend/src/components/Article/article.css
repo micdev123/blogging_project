@@ -175,7 +175,7 @@
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .Author_Article_Date {
         margin: 10px 0;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .Author_Article_Contents_Head {
@@ -187,9 +187,9 @@
 
 
     .Article_Head_Left {
-        width: 2.7rem;
+        width: 3.2rem;
         height: 2.7rem;
-        /* margin-right: 10px; */
+        margin-right: 8px;
     }
 
     .Article_Head_Left img {
@@ -208,7 +208,7 @@
 
 
     .Article_Head_Right h2 {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
     }
 
 
@@ -229,7 +229,7 @@
     }
 
     .Article_Contents_Body_Desc {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
         margin: 5px 0;
     }
 }
@@ -243,9 +243,9 @@
     }
 
     .Article_Head_Left {
-        width: 2.7rem;
+        width: 3.2rem;
         height: 2.7rem;
-        /* margin-right: 10px; */
+        margin-right: 10px;
     }
 
     .Article_Head_Left img {

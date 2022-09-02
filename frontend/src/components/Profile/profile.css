@@ -159,11 +159,11 @@
 @media screen and (min-width : 768px) and (max-width : 1024px) {
     .Profile_Component>h2 {
         border-bottom: 1.7px solid #d5d5d5;
-        font-size: 1.7rem;
+        font-size: 1.55rem;
     }
 
     .Profile_Component>h2 .icon {
-        font-size: 1.9rem;
+        font-size: 1.65rem;
     }
 
     .Profile_Form_Container {
@@ -181,23 +181,23 @@
 
     .Form_Group_ input {
         border-bottom: 1.7px solid #ebebeb;
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
 
 
     .Form_Group_ label {
-        font-size: 1.55rem;
+        font-size: 1.25rem;
     }
 
     .Form_Group_ .Main_Label {
-        font-size: 1.65rem;
+        font-size: 1.25rem;
         margin-bottom: 10px;
     }
 
     .Form_Group_ textarea {
         border: none;
         outline: none;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         border-bottom: 1.7px solid #eeeeee;
     }
 
@@ -233,15 +233,15 @@
 
     .username_url label {
         margin-right: 10px;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .username_url input {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
     .Url_Large {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         font-weight: 550;
         display: flex;
         align-items: center;
@@ -255,7 +255,7 @@
     .Connection label {
         display: flex;
         align-items: center;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .Connection input {
@@ -277,11 +277,11 @@
 
     .Profile_Component>h2 {
         border-bottom: 1.7px solid #d5d5d5;
-        font-size: 1.45rem;
+        font-size: 1.35rem;
     }
 
     .Profile_Component>h2 .icon {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
     }
 
     .Profile_Form_Container {
@@ -304,11 +304,11 @@
 
 
     .Form_Group_ label {
-        font-size: 1.2rem;
+        font-size: 1.12rem;
     }
 
     .Form_Group_ .Main_Label {
-        font-size: 1.25rem;
+        font-size: 1.12rem;
         margin-bottom: 10px;
     }
 
@@ -346,7 +346,7 @@
 
     .username_url label {
         margin-right: 10px;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .username_url input {
@@ -398,11 +398,11 @@
 
     .Profile_Component>h2 {
         border-bottom: 1.7px solid #d5d5d5;
-        font-size: 1.45rem;
+        font-size: 1.25rem;
     }
 
     .Profile_Component>h2 .icon {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 
     .Profile_Form_Container {
@@ -429,7 +429,7 @@
     }
 
     .Form_Group_ .Main_Label {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         margin-bottom: 10px;
     }
 
