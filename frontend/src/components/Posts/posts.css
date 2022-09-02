@@ -90,3 +90,24 @@
         font-size: 1.15rem;
     }
 }
+
+/* Mobile Devices :: Media Queries */
+@media screen and (max-width : 968px) and (orientation: landscape) {
+    .Posts_Component {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+    }
+
+    .Most_Viewed {
+        display: none;
+    }
+
+    .Pagination {
+        margin-top: 30px;
+    }
+
+    .Pagination .Link {
+        border: 1.7px solid #8c8c8c;
+        font-size: 1.15rem;
+    }
+}

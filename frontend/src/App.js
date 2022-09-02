@@ -42,7 +42,7 @@ function App() {
   const signOutHandler = () => {
       ctxDispatch({ type: 'USER_SIGNOUT' });
       localStorage.removeItem('userInfo');
-      window.location.href = '/';
+    window.location.href = '/';
       // setMenu(false)
   };
 
