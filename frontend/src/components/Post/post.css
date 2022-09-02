@@ -349,6 +349,13 @@
 
 /* Mobile Devices :: Media Queries */
 @media screen and (max-width : 968px) and (orientation: landscape) {
+    .Post_Component {
+        width: 100%;
+    }
+    .Post_Contents {
+        width: 100%;
+    }
+
     .Post_Head_Left {
         width: 3.5rem;
         height: 2.8rem;
