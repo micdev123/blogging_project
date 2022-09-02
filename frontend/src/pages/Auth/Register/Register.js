@@ -50,7 +50,7 @@ export const Register = () => {
                 name: nameRef.current.value,
                 password: passwordRef.current.value,
                 email: emailRef.current.value,
-                userUrl: emailRef.current.value.split('@')[0] + '.blogging.com'
+                userUrl: emailRef.current.value.split('@')[0]
             });
             // when dispatching you need to set the type and the payload 
             ctxDispatch({ type: 'USER_SIGNIN', payload: data });
@@ -82,10 +82,10 @@ export const Register = () => {
                         <input type='text' name='name' placeholder='Enter full name' required ref={nameRef} className="Dark_Mode_Background" />
                         <input type='email' name='email' placeholder='Enter email' required ref={emailRef} className="Dark_Mode_Background" />
                         <div className='Password'>
-                            <input type='password' name='password' placeholder='Enter password' required ref={passwordRef} className="Dark_Mode_Background" />
+                            <input type={type} name='password' placeholder='Enter password' required ref={passwordRef} className="Dark_Mode_Background" />
                             <span onClick={handleToggle} className='ShowPassword'><Icon icon={icon} className='icon' /></span>
                         </div>
-                        <input type={type} name='confirm_password' placeholder='confirm password' ref={confirmedPasswordRef}  required className="Dark_Mode_Background" />
+                        <input type='password' name='confirm_password' placeholder='confirm password' ref={confirmedPasswordRef}  required className="Dark_Mode_Background" />
                         <button type='submit' className='Auth_Btn'>Register</button>
                         
                         <button className='Info'>

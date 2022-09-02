@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { publicRequest } from '../../requestController';
 import { Article } from '../Article/Article';
 
@@ -25,7 +25,6 @@ const reducer = (state, action) => {
 }
 
 export const RelatedPost = ({ post }) => {
-    const Images_Folder = "http://localhost:5000/images/";
     const [{ isLoading, error, posts}, dispatch] = useReducer(reducer, initialState); 
     // const [posts, setPosts] = useState([])
     useEffect(() => {

@@ -1,4 +1,7 @@
-import React, { useContext, useEffect, useReducer, useState } from 'react'
+import React, { useContext, useReducer, useState } from 'react'
+
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
 import { useNavigate } from 'react-router'
 import { MdAddAPhoto } from 'react-icons/md';
 import { FcAbout } from 'react-icons/fc';
@@ -10,7 +13,8 @@ import { AiOutlineLink } from 'react-icons/ai';
 import { Store } from '../../Store';
 import { Helmet } from 'react-helmet-async';
 import { publicRequest } from '../../requestController';
-import { getError } from '../../utils';
+
+import app from '../../firebase';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -27,7 +31,6 @@ const reducer = (state, action) => {
 
 
 export const Profile = () => {
-    const Images_Folder = "http://localhost:5000/images/";
     const navigate = useNavigate();
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -48,26 +51,45 @@ export const Profile = () => {
 
 
 
-    const updateHandler = async (e) => { 
+    const updateHandler = (e) => { 
         e.preventDefault();
         const updateUser = {
             ...Inputs,
             userId: userInfo._id
         }
-        if (file) {
-            const data = new FormData();
-            const filename = Date.now() + file.name;
-            data.append("name", filename);
-            data.append("file", file);
-            updateUser.photo = filename;
-            try {
-                await publicRequest.post("upload", data);
-            }
-            catch (err) { }
+        
+        if(file) {
+            const img_name = new Date().getTime() + file.name;
+            const storage = getStorage(app);
+            const storageRef = ref(storage, img_name);
+
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on('state_changed', (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+                console.log('Upload is ' + progress + '% done');
+                }, 
+                (error) => {
+                    // Handle unsuccessful uploads
+                }, 
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        const user = { ...updateUser, photo: downloadURL };
+                        updateProfile(user);
+                    });
+                }
+            );
         }
+        else {
+            updateProfile(updateUser);
+        }
+    }
+
+    const updateProfile = async (user) => {
         try {
             dispatch({ type: 'UPDATE_REQUEST' });
-            const { data } = await publicRequest.put( `users/find/${userInfo._id}`, updateUser);
+            const { data } = await publicRequest.put( `users/find/${userInfo._id}`, user);
             dispatch({ type: 'UPDATE_SUCCESS', });
             ctxDispatch({ type: 'USER_SIGNIN', payload: data });
             localStorage.setItem('userInfo', JSON.stringify(data));
@@ -95,29 +117,33 @@ export const Profile = () => {
                             <label htmlFor='name' className='Dark_Mode'>Full name</label>
                             <input type='text' name='name' value={Inputs.name} placeholder='Enter full name' className='Dark_Mode_Background' required onChange={handleChange} />
                         </div>
+
                         <div className='Form_Group_'>
                             <label htmlFor='fields' className='Dark_Mode'>Your field</label>
                             <input type='text' name='fields' value={Inputs.fields} placeholder='web developer,economist,etc..' onChange={handleChange} className='Dark_Mode_Background' />
                             <p>Please separate each word with a comma(,)</p>
                         </div>
+
                         <div className='Form_Group_'>
                             <label htmlFor='email' className='Dark_Mode'>Email</label>
                             <input type='email' name='email' value={Inputs.email} placeholder='Enter your email' required onChange={handleChange} className='Dark_Mode_Background' />
                         </div>
+
                         <div className='Form_Group_'>
                             <label htmlFor='password' className='Dark_Mode'>Password</label>
                             <input type='password' name='password' value={Inputs.password} placeholder='Enter your password' required onChange={handleChange} className='Dark_Mode_Background' />
                         </div>
+
                         <div className='Form_Group_'>
                             <label className='Dark_Mode'>Photo</label>
                             <div className='Profile_Photo'>
                                 {
                                     file ? (
-                                        <img className="Profile_Img" src={URL.createObjectURL(file)} alt="Post_Img" />
+                                        <img className="Profile_Img" src={URL.createObjectURL(file)} alt="user_Img" />
                                     ) : userInfo.photo ? (
-                                        <img className="Profile_Img" src={userInfo.photo && (Images_Folder + userInfo.photo)} alt="Post_Img" />
+                                        <img className="Profile_Img" src={userInfo.photo && (userInfo.photo)} alt="user_Img" />
                                     ) : (
-                                        <img className="Profile_Img" src={`${Images_Folder}user.png`} alt="Post_Img" />  
+                                        <img className="Profile_Img" src='./assets/user.png' alt="user_Img" />  
                                     )
                                 }
                                 <label htmlFor='photo'>
@@ -126,14 +152,17 @@ export const Profile = () => {
                             </div>
                             <input type='file' id='photo' name='photo' style={{display:'none'}} onChange={(e) => setFile(e.target.files[0])} />
                         </div>
+
                         <div className='Form_Group_'>
                             <label htmlFor='location' className='Dark_Mode'>Location</label>
                             <input type='text' name='location' value={Inputs.location} placeholder='Enter your location' onChange={handleChange} className='Dark_Mode_Background' />
                         </div>
+
                         <div className='Form_Group_'>
                             <label htmlFor='work' className='Dark_Mode'>Work at</label>
                             <input type='text' name='work' value={Inputs.work} placeholder='Work at ...' onChange={handleChange} className='Dark_Mode_Background' />
                         </div>
+
                         <div className='Form_Group_'>
                             <label htmlFor='shortBio' className='Dark_Mode'>Short bio</label>
                             <textarea type='text' name='shortBio' value={Inputs.shortBio} className='short_bio Dark_Mode_Background' placeholder='Add your short bio full name' onChange={handleChange} />
@@ -149,14 +178,14 @@ export const Profile = () => {
                             <label htmlFor='username' className='Username Dark_Mode'>Account URL:</label>
                             <p className='Url_Large Dark_Mode'>
                                 <AiOutlineLink className='icon' />
-                                URL: <span>https://{Inputs.userUrl}</span>
+                                URL: <span> https://mern-blogging.com/{Inputs.userUrl}</span>
                             </p>
                             <p className='Url_Small Dark_Mode'>
                                 <span>
                                     <AiOutlineLink className='icon' />
                                     URL:
                                 </span>
-                                <span>https://blogging.com/@hellenbangs123</span>
+                                <span> https://mern-blogging.com/{Inputs.userUrl}</span>
                             </p>
                         </div>
                         <div className='Form_Group_ socials'>

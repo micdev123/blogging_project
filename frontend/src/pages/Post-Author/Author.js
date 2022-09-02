@@ -37,8 +37,6 @@ const reducer = (state, action) => {
 
 
 export const Author = () => {
-    const Images_Folder = "http://localhost:5000/images/";
-
     const { url } = useParams();
     // const url = location.pathname.split("/")[1];
     // console.log(url);
@@ -78,7 +76,7 @@ export const Author = () => {
                                 {
                                     authorPosts?.user && authorPosts?.user.photo ? (
                                         <div className='Author__Img'>
-                                            <img src={Images_Folder + authorPosts?.user.photo} alt={authorPosts.user.photo} />
+                                            <img src={authorPosts?.user.photo} alt='author_img' />
                                         </div>
                                     ) : (
                                         <div className='Creator'>

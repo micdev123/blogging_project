@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react'
-import { Article } from '../../components/Article/Article'
+
 import { SettingSideBar } from '../../components/Setting-Sidebar/SettingSideBar'
-import { GrArticle } from 'react-icons/gr';
+
 
 import './my-articles.css'
 import { Store } from '../../Store';
@@ -48,10 +48,9 @@ const reducer = (state, action) => {
 
 
 export const MyArticles = () => {
-    const Images_Folder = "http://localhost:5000/images/";
     const navigate = useNavigate();
 
-    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { state } = useContext(Store);
     const { userInfo } = state;
     const [{ isLoading, error, singlePost, loadingDelete, successDelete, }, dispatch] = useReducer(reducer, initialState);
 
@@ -108,7 +107,7 @@ export const MyArticles = () => {
                                 {posts && posts?.map((post) => (
                                     <div className='My_Posts' key={post._id}>
                                         <div className='Article_Image'>
-                                            <img src={Images_Folder + post?.photo} alt='Post_Img' />
+                                            <img src={post?.photo} alt='Post_Img' />
                                         </div>
                                         <div className='Author_Article_Contents'>
                                             <div className='Author_Article_contents_Heading'>

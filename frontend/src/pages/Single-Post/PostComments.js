@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useReducer, useRef, useState } from 'react'
-import { BsFillReplyAllFill } from 'react-icons/bs'
-import { AiFillEdit, AiOutlineLike } from 'react-icons/ai'
+import React, { useContext, useReducer, useRef, useState } from 'react'
+
+import { AiFillEdit } from 'react-icons/ai'
 import { Store } from '../../Store';
 import { publicRequest } from '../../requestController';
 import { format } from "timeago.js"
@@ -23,8 +23,6 @@ const reducer = (state, action) => {
 };
 
 export const PostComments = ({ post }) => {
-    const Images_Folder = "http://localhost:5000/images/";
-
     const [{ error, loadingCreate, }, dispatch, ] = useReducer(reducer, {
         loading: true,
         error: '',
@@ -77,7 +75,7 @@ export const PostComments = ({ post }) => {
                         {
                             userInfo && userInfo.photo ? (
                                 <div className='Form_Heading_Img'>
-                                    <img src={Images_Folder + userInfo.photo} alt={userInfo.name} />
+                                    <img src={userInfo.photo} alt={userInfo.name} />
                                 </div>
                             ) : (
                                 <div className='Creator'>
@@ -105,7 +103,7 @@ export const PostComments = ({ post }) => {
                             {
                                 comment.commenterPhoto ? (
                                     <div className='Commenter_Img'>
-                                        <img src={Images_Folder + comment.commenterPhoto} alt={comment.commenter} />
+                                        <img src={comment.commenterPhoto} alt={comment.commenter} />
                                     </div>
                                 ) : (
                                     <div className='Creator'>

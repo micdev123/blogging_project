@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react'
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
 import { Helmet } from 'react-helmet-async'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { BiMessageSquareAdd } from 'react-icons/bi'
@@ -7,6 +9,8 @@ import { useLocation, useNavigate } from 'react-router'
 import { publicRequest, userRequest } from '../../requestController'
 import { Store } from '../../Store'
 import { getError } from '../../utils'
+
+import app from '../../firebase';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -33,7 +37,6 @@ const reducer = (state, action) => {
 
 
 export const EditSinglePost = () => {
-    const Images_Folder = "http://localhost:5000/images/";
     const navigate = useNavigate();
 
     const { state } = useContext(Store);
@@ -50,15 +53,8 @@ export const EditSinglePost = () => {
     const [post, setPost] = useState([]);
     
     const [Inputs, setInputs] = useState({})
-    const [file, setFile] = useState("")
+    
 
-
-    const handleChange = (e) => {
-        setInputs((prev) => {
-            return { ...prev, [e.target.name]: e.target.value };
-        });
-    };
-   
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -75,6 +71,15 @@ export const EditSinglePost = () => {
         fetchData();
     }, [id]);
 
+
+    const handleChange = (e) => {
+        setInputs((prev) => {
+            return { ...prev, [e.target.name]: e.target.value };
+        });
+    };
+
+   
+    const [file, setFile] = useState("")
     const [openFormSideBar, setFormSideBar] = useState(false);
     
     const closeFormSideBar = () => {
@@ -82,35 +87,67 @@ export const EditSinglePost = () => {
     }
     
     
-    const submitHandler = async (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
         const updatePost = {
             ...Inputs,
             creator: userInfo.name,
             creatorPhoto: userInfo.photo
         }
-        if (file) {
-            const data = new FormData();
-            const filename = Date.now() + file.name;
-            data.append("name", filename);
-            data.append("file", file);
-            updatePost.photo = filename;
-            try {
-                await userRequest.post("upload", data);
-            }
-            catch (err) { }
+
+        if(file) {
+            const img_name = new Date().getTime() + file.name;
+            // console.log(img_name);
+            const storage = getStorage(app);
+            const storageRef = ref(storage, img_name);
+
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on('state_changed', (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+                    console.log('Upload is ' + progress + '% done');
+                    switch (snapshot.state) {
+                        case 'paused':
+                            console.log('Upload is paused');
+                            break;
+                        case 'running':
+                            console.log('Upload is running');
+                            break;
+                        default:
+                            // break;
+                    }
+                }, 
+                (error) => {
+                    // Handle unsuccessful uploads
+                }, 
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        console.log('File available at', downloadURL);
+                        const postUpdated = { ...updatePost, photo: downloadURL };
+                        // console.log(postUpdated)
+                        update(postUpdated);
+                    });
+                }
+            );
         }
+        else {
+            update(updatePost);
+        }
+
+    }
+
+    const update = async (post) => {
         try {
             dispatch({ type: 'UPDATE_REQUEST' });
-            await userRequest.put( `posts/${id}`, updatePost);
+            await userRequest.put( `posts/${id}`, post);
             dispatch({ type: 'UPDATE_SUCCESS', });
             navigate(`/post/${post.slug}_${post._id}`);
             // window.location.replace("/post/" + data._id);
         }
         catch (err) {
             dispatch({ type: 'UPDATE_FAIL' });
-         }
-
+        }
     }
     return (
         loading ? (<div>Loading..</div>) : error ? (<p className="danger">{error}</p>) : (
@@ -123,9 +160,9 @@ export const EditSinglePost = () => {
                     <div className='Write_Container Dark_Mode_Background'>
                         {
                             file ? (
-                                <img className="Write_Img" src={URL.createObjectURL(file)} alt="Post_Img" />
+                                <img className="Write_Img" src={URL.createObjectURL(file)} alt="" />
                             ) : (
-                                <img className="Write_Img" src={post.photo && (Images_Folder + post.photo)} alt="Post_Img" />
+                                <img className="Write_Img" src={post.photo && (post.photo)} alt="" />
                             )
                         }
                         

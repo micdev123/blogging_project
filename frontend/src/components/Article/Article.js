@@ -1,74 +1,24 @@
-import React, { useContext, useReducer } from 'react'
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
-import { BiLike } from 'react-icons/bi';
-import { FaRegComment } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { format } from 'timeago.js';
-import { publicRequest } from '../../requestController';
-import { Store } from '../../Store';
 
 import './article.css'
 
-const initialState = {
-    post: [],
-    loading: true,
-    error: '',
-};
-
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'DELETE_REQUEST':
-            return { ...state, loadingDelete: true, successDelete: false };
-        case 'DELETE_SUCCESS':
-            return {
-                ...state,
-                loadingDelete: false,
-                successDelete: true,
-            };
-        case 'DELETE_FAIL':
-            return { ...state, loadingDelete: false, successDelete: false };
-
-        case 'DELETE_RESET':
-            return { ...state, loadingDelete: false, successDelete: false };
-        default:
-            return state; //Current state
-    }
-}
 
 export const Article = ({ post }) => {
-    const Images_Folder = "http://localhost:5000/images/";
-    const navigate = useNavigate();
-    
-    const { state, dispatch: ctxDispatch } = useContext(Store);
-    const { userInfo } = state;
-
-    const [{ loadingDelete, successDelete, }, dispatch] = useReducer(reducer, initialState);
-
-    const deleteHandler = async (id) => {
-        if (window.confirm('Are you sure to delete?')) {
-            try {
-                await publicRequest.delete(`posts/${id}`, {
-                    data: { creator: userInfo.name },
-                });
-                dispatch({ type: 'DELETE_SUCCESS' });
-                navigate(`/`);
-            }
-            catch (err) {
-                dispatch({ type: 'DELETE_FAIL', });
-            }
-        }
-    };
     return (
         <div className='Article_Component'>
             <div className='Article_Image'>
-                <img src={Images_Folder + post.photo} alt='Post_Img' />
+                <Link to={`/post/${post.slug}_${post._id}`}>
+                    <img src={post.photo} alt='' />
+                </Link>
             </div>
             <div className='Author_Article_Contents'>
                 <p className='Author_Article_Date Dark_Mode_P'>{format(post.createdAt)}</p>
                 <div className='Author_Article_Contents_Head'>
                     {post.creatorPhoto ? (
                         <div className='Article_Head_Left'>
-                            <img src={Images_Folder + post.creatorPhoto} alt='Author_Img' />
+                            <img src={post.creatorPhoto} alt='Author_Img' />
                         </div>
                         ) : (
                             <div className='Creator_'>

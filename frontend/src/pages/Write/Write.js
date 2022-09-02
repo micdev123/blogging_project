@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, useReducer, useRef, useState } from 'react'
+import React, { useContext, useReducer, useRef, useState } from 'react'
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
 import { Helmet } from 'react-helmet-async';
 import { BiMessageSquareAdd } from 'react-icons/bi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
@@ -10,6 +12,8 @@ import { Store } from '../../Store';
 import './write.css'
 import { publicRequest } from '../../requestController';
 import { useNavigate } from 'react-router';
+
+import app from '../../firebase';
 
 
 const reducer = (state, action) => {
@@ -54,7 +58,7 @@ export const Write = () => {
     const userLinkRef = useRef();
     const [file, setFile] = useState("")
    
-    const submitHandler = async (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
         const newPost = {
             title: titleRef.current.value,
@@ -67,26 +71,43 @@ export const Write = () => {
             creatorPhoto: userInfo.photo,
             creatorLink: userInfo.userUrl
         }
-        if (file) {
-            const data = new FormData();
-            const filename = Date.now() + file.name;
-            data.append("name", filename);
-            data.append("file", file);
-            newPost.photo = filename;
-            try {
-                await publicRequest.post("upload", data);
+
+        const img_name = new Date().getTime() + file.name;
+        const storage = getStorage(app);
+        const storageRef = ref(storage, img_name);
+
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on('state_changed', (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+            console.log('Upload is ' + progress + '% done');
+            }, 
+            (error) => {
+                // Handle unsuccessful uploads
+            }, 
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    const post = { ...newPost, photo: downloadURL };
+                    create(post);
+                });
             }
-            catch (err) { }
-        }
+        );
+
+    }
+
+    const create = async (newPost) => {
+        // const { product_ } = product
+        // console.log(product);
         try {
             dispatch({ type: 'CREATE_REQUEST' });
             await publicRequest.post("posts", newPost);
             dispatch({ type: 'CREATE_SUCCESS' });
             navigate(`/`);
-            // window.location.replace("/post/" + data._id);
         }
-        catch (err) { }
-
+        catch (err) {
+            dispatch({ type: 'CREATE_FAIL',});
+        }
     }
     return (
         <div className={!openFormSideBar ? 'Write_Component' : 'Set_Fixed Dark_Mode_Background'}>

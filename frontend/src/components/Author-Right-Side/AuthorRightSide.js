@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer, useState } from 'react'
-import { BsTwitter, BsInstagram, BsGithub, BsYoutube, BsFacebook } from 'react-icons/bs'
-import { FaFacebook, FaTiktok } from 'react-icons/fa'
-import { FiLink } from 'react-icons/fi'
+import { BsTwitter, BsGithub, BsYoutube, BsFacebook } from 'react-icons/bs'
+
 import { publicRequest } from '../../requestController';
 import { Link } from 'react-router-dom'
 
@@ -32,7 +31,6 @@ const reducer = (state, action) => {
 }
 
 export const AuthorRightSide = ({ author }) => {
-    const Images_Folder = "http://localhost:5000/images/";
     const userId = author.creatorId
     const [{ isLoading, error, posts_ }, dispatch] = useReducer(reducer, initialState);
 
@@ -59,7 +57,7 @@ export const AuthorRightSide = ({ author }) => {
                 {
                     user.photo ? (
                         <div className='Author_RightSide_Img'>
-                            <img src={Images_Folder + user.photo} alt={user.name} />
+                            <img src={user.photo} alt={user.name} />
                         </div>
                     ) : (
                         <div className='Creator'>

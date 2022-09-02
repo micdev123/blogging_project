@@ -35,7 +35,6 @@ const reducer = (state, action) => {
 
 export const Post = ({ data }) => {
     const id = data._id
-    const Images_Folder = "http://localhost:5000/images/";
 
     const [{ loadingUpdate, }, dispatch] = useReducer(reducer, {
        loadingUpdate: false,
@@ -80,7 +79,7 @@ export const Post = ({ data }) => {
                     {
                         data?.creatorPhoto ? (
                             <div className='Post_Head_Left'>
-                                <img src={Images_Folder + data.creatorPhoto} alt={data.creator} />
+                                <img src={data.creatorPhoto} alt={data.creator} />
                             </div>
                         ) : (
                             <div className='Creator'>
@@ -142,7 +141,7 @@ export const Post = ({ data }) => {
                 </div>
             </div>
             <div className='Post_Image'>
-                <img src={Images_Folder + data.photo} alt='Post_Img' />
+                <img src={data.photo} alt='Post_Img' />
             </div>
         </div>
     )

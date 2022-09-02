@@ -32,7 +32,6 @@ function App() {
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
-  const Images_Folder = "http://localhost:5000/images/";
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -62,7 +61,7 @@ function App() {
                     <div className='LoginUser'>
                         {userInfo.photo ?
                             <div className='UserPhoto'>
-                                <img src={Images_Folder + userInfo.photo} alt='user' />
+                                <img src={userInfo.photo} alt='user' />
                             </div>
                             :
                             <div className='UserLogo'>
@@ -80,7 +79,7 @@ function App() {
                             {dropdown &&
                                 (
                                     <div className='Dropdown_Menu'>
-                                        <Link to='/settings' className='Link'>
+                                        <Link to='/settings' className='Link' onClick={(e) => setDropdown(false)}>
                                             <AiFillSetting className='icon' />
                                             Setting
                                         </Link>
@@ -132,7 +131,7 @@ function App() {
                         <div className='LoginUser'>
                           {userInfo.photo ?
                             <div className='UserPhoto'>
-                                <img src={Images_Folder + userInfo.photo} alt='user' />
+                                <img src={userInfo.photo} alt='user' />
                             </div>
                             :
                             <div className='UserLogo_'>

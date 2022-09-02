@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { AuthorRightSide } from '../../components/Author-Right-Side/AuthorRightSide'
 
 
-import { AiFillEdit, AiFillDelete, AiFillCloseCircle } from 'react-icons/ai'
+import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
 
 import { HiCubeTransparent } from 'react-icons/hi'
 
@@ -12,7 +12,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { publicRequest } from '../../requestController';
 import { format } from "timeago.js"
 import { Store } from '../../Store';
-import { getError } from '../../utils';
 import { RightSideCategory } from '../../components/Right-Side-Category/RightSideCategory'
 import { Helmet } from 'react-helmet-async'
 import { PostComments } from './PostComments'
@@ -54,11 +53,10 @@ const reducer = (state, action) => {
 
 
 export const SinglePost = () => {
-    const Images_Folder = "http://localhost:5000/images/";
     const navigate = useNavigate();
     
     
-    const { state, dispatch: ctxDispatch } = useContext(Store);
+    const { state } = useContext(Store);
     const { userInfo } = state;
 
     const location = useLocation();
@@ -129,7 +127,7 @@ export const SinglePost = () => {
                             <div className='Single_Post_Left'>
                                 <div className='Single_Post Dark_Mode_Background'>
                                     <div className='Single_Post_Img'>
-                                        <img src={Images_Folder + post.photo} alt='Single_Post_Img' />
+                                        <img src={post.photo} alt='Single_Post_Img' />
                                     </div>
                                     <div className='Single_Post_Left_Contents'>
                                         <div className='Small_Screen'>
@@ -145,7 +143,7 @@ export const SinglePost = () => {
                                             {
                                                 post?.creatorPhoto ? (
                                                     <div className='Post_Head_Left'>
-                                                        <img src={Images_Folder + post?.creatorPhoto} alt={post.creator} />
+                                                        <img src={post?.creatorPhoto} alt={post.creator} />
                                                     </div>
                                                 ) : (
                                                     <div className='Creator'>

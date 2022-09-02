@@ -29,7 +29,6 @@ const reducer = (state, action) => {
 
 
 export const MostRead = () => {
-    const Images_Folder = "http://localhost:5000/images/";
     const [{ isLoading, error, posts }, dispatch] = useReducer(reducer, initialState); 
      useEffect(() => {
         // fetch products from backend :: Ajax request
@@ -57,7 +56,7 @@ export const MostRead = () => {
                     {posts && posts?.map((post) => (
                         <Link to={`/post/${post?.slug}_${post?._id}`} key={post?._id} className='Trending_Post Dark_Mode'>
                             <div className='Trending_Post_Img'>
-                                <img src={Images_Folder + post?.photo} alt='Article_Img' />
+                                <img src={post?.photo} alt='Article_Img' />
                             </div>
                             <div className='Trending_Post_Content'>
                                 <h2 className='Dark_Mode'>{post?.title.length > 20 ? `${post?.title.substring(0, 50)}...` : post.title }</h2>
