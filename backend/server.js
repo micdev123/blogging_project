@@ -1,8 +1,8 @@
 const express = require('express');
-const colors = require('colors')
-const dotenv = require('dotenv').config();
 const cors = require('cors');
 const { errorHandler } = require('./middleware/errorMiddleware')
+require('colors')
+require('dotenv').config();
 
 const connectDB = require('./config/db.js');
 const multer = require("multer");
