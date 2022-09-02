@@ -17,6 +17,10 @@
     margin-top: 10px;
 }
 
+.Footer_Socials a {
+    color: #3e3d3d;
+}
+
 .Footer_Socials .icon {
     margin: 0 10px;
 }
