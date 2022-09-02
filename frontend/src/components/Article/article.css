@@ -175,7 +175,7 @@
 @media screen and (min-width : 320px) and (max-width : 480px) {
     .Author_Article_Date {
         margin: 10px 0;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 
     .Author_Article_Contents_Head {
@@ -229,7 +229,7 @@
     }
 
     .Article_Contents_Body_Desc {
-        font-size: 0.95rem;
+        font-size: 1rem;
         margin: 5px 0;
     }
 }

@@ -265,6 +265,10 @@
         flex-direction: column-reverse;
     }
 
+    .Post_Contents {
+        width: 100%;
+    }
+
     .Small_Screen_Date {
         display: block;
         margin: 10px 0;
@@ -310,6 +314,7 @@
     }
 
     .Post_Contents_Body {
+        width: 100%;
         margin: 5px 0;
     }
 

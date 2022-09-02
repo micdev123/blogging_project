@@ -584,7 +584,7 @@
     }
 
     .Single_Post .Single_Post_Left_Head .Post_Head_Right .Link h2 {
-        font-size: 1.19rem;
+        font-size: 1.1rem;
         margin-bottom: 3px;
     }
 
@@ -624,7 +624,7 @@
     .Comment_Btn {
         border: 1.7px solid #525252;
         padding: 5px 15px;
-        font-size: 1.05rem;
+        font-size: 1rem;
     }
 
     .Comment_Btn .icon {
