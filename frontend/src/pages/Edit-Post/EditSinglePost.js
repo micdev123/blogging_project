@@ -11,6 +11,7 @@ import { Store } from '../../Store'
 import { getError } from '../../utils'
 
 import app from '../../firebase';
+import { ProgressBar } from '../../components/ProgressBar';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -150,7 +151,7 @@ export const EditSinglePost = () => {
         }
     }
     return (
-        loading ? (<div>Loading..</div>) : error ? (<p className="danger">{error}</p>) : (
+        loading ? (<ProgressBar />) : error ? (<p className="danger">{error}</p>) : (
             <div className={!openFormSideBar ? 'EditSinglePost' : 'Set_Fixed Dark_Mode_Background'}>
                 <div className={openFormSideBar && 'Overlay_Form_Post'}></div>
                 <Helmet>
