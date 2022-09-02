@@ -9,7 +9,7 @@ const multer = require("multer");
 const path = require('path');
 
 
-const port = process.env || 5000;
+const port = process.env.PORT || 5000;
 
 // Calling database
 connectDB();
