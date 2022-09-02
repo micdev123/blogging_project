@@ -43,7 +43,7 @@ function App() {
   const signOutHandler = () => {
       ctxDispatch({ type: 'USER_SIGNOUT' });
       localStorage.removeItem('userInfo');
-      navigate(`/login`);
+      navigate(`/`);
       // setMenu(false)
   };
 
