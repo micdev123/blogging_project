@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useReducer, useState } from 'react'
+import React, { useEffect, useReducer, useState } from 'react'
 import { BiDislike, BiLike } from 'react-icons/bi'
 import { FaRegComment } from 'react-icons/fa'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { format } from "timeago.js"
 import { publicRequest } from '../../requestController'
-import { Store } from '../../Store'
+// import { Store } from '../../Store'
 
 import './post.css'
 
@@ -36,7 +36,6 @@ const reducer = (state, action) => {
 export const Post = ({ data }) => {
     const id = data._id
     const Images_Folder = "http://localhost:5000/images/";
-    const navigate = useNavigate();
 
     const [{ loadingUpdate, }, dispatch] = useReducer(reducer, {
        loadingUpdate: false,
