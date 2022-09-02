@@ -8,13 +8,14 @@ const router = express.Router()
 // Get all posts
 router.get('/', getPosts)
 
-router.get('/limit', getPostsWithMostLikes)
-
-router.get('/mine/:id', getMyPosts);
 // Create posts
 router.post('/', createPost);
 
+router.get('/limit', getPostsWithMostLikes)
+
 router.get('/tags', getPostTags);
+
+router.get('/mine/:id', getMyPosts);
 
 
 router.get('/find/:id', getPost);

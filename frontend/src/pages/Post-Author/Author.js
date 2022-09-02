@@ -104,7 +104,7 @@ export const Author = () => {
                             <div className='Author_Profile_Contents'>
                                 <div className='Author_Profile_Bio'>
                                     {authorPosts.user && authorPosts.user.shortBio && (
-                                        <p>{authorPosts.user.shortBio}</p>
+                                        <p className='Dark_Mode_P'>{authorPosts.user.shortBio}</p>
                                     )}
                                 </div>
                                 <p className='Author_Date_Joined Dark_Mode_P'>

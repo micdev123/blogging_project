@@ -56,6 +56,7 @@ export const PostComments = ({ post }) => {
         } catch (error) {
             
         }
+        setOpenCommentForm(false);
     }
 
     return (

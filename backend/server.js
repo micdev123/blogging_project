@@ -24,9 +24,7 @@ app.use(cors());
 app.use(express.json())  // bodyParse for raw json
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', (req, res) => {
-  res.send('app is running');
-})
+
 
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
@@ -57,6 +55,10 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
 
+
+app.get('/', (req, res) => {
+  res.send('app is running');
+})
 
 app.use(errorHandler);
 
